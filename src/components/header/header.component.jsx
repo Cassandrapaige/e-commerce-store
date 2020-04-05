@@ -5,9 +5,12 @@ import {connect} from 'react-redux'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { auth } from '../../firebase/firebase.utils'
 
+import CartIcon from '../cart-icon/cart-icon.components'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
+
 import './header.styles.scss'
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
     <header>
         <Link to = '/' className = 'logo-container'>
             <Logo className = 'logo'/>
@@ -28,14 +31,19 @@ const Header = ({ currentUser }) => (
                 SIGN IN
                 </Link>
             }
+            <CartIcon />
         </nav>
+        {
+            hidden ? null :
+            <CartDropdown />
+        }
     </header>
 )
 
-const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = ({ user: {currentUser}, cart: {hidden} }) => ({
+    currentUser,
+    hidden
 })
-
 
 // connect is a HOF being passed down from redux
 export default connect(mapStateToProps)(Header);
