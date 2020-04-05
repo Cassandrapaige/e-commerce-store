@@ -15,7 +15,7 @@ class SignIn extends Component {
             email: '',
             password: ''
         }
-    }
+    } 
 
     handleSubmit = event => {
         event.preventDefault();
