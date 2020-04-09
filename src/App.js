@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -24,18 +24,15 @@ class App extends Component {
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
+        // calling 'snapshot' allows us to see if the document exists, and receive ID
+        // attaching the .data() method returns a full JSON object with the documents data
+
         userRef.onSnapshot(snapshot => {
           setCurrentUser({
-
-              // calling 'snapshot' allows us to see if the document exists, and receive ID
               id: snapshot.id,
-
-              // attaching the .data() method returns a full JSON object with the documents data
               ...snapshot.data()
             })
-          })
-      }
-
+        })}
       // user will be set to null
       setCurrentUser(userAuth)
     })
@@ -62,14 +59,14 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-// connect takes in two arguments (objects): mapStateToProps and mapDispatchToProps
+// connect takes in mapStateToProps and mapDispatchToProps as parameters
 // pass null when you dont need to mapStateToProps
 export default connect(mapStateToProps, mapDispatchToProps)(App);

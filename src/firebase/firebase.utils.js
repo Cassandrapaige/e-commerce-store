@@ -25,7 +25,6 @@ const config = {
     const snapShot = await userRef.get();
 
     // .exists is a property attached to the documentSnapshot object
-    // returns false if user doesn't esixt
     if(!snapShot.exists) {
 
         // grab properties we need before SETting our new user

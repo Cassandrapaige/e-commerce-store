@@ -12,6 +12,8 @@
     outline: none;
     margin: 10px 0;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 
     &:hover {
         background: white;
@@ -27,6 +29,17 @@
             background: #fff;
             color: #4285f4;
             border: 1px solid #4285f4;
+        }
+    }
+
+    &.inverted {
+        background: white;
+        color: black;
+        border: 1px solid black !important;
+
+        &:hover {
+            background: black;
+            color: white;
         }
     }
 }
