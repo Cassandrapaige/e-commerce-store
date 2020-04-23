@@ -11,33 +11,22 @@ class Directory extends Component {
         this.state = {
             sections: [
                 {
-                    title: 'Jackets',
-                    imageUrl: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60',
-                    id: 1,
-                    linkUrl: 'jackets'
-                },
-                {
-                    title: 'Sneakers',
-                    imageUrl: 'https://images.unsplash.com/photo-1517466121016-3f7e7107c756?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60',
-                    id: 2,
-                    linkUrl: ''
-                },
-                {
-                    title: 'Hats',
-                    imageUrl: 'https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60',
-                    id: 3,
-                    linkUrl: ''
-                },
-                {
                     title: 'Womens',
-                    imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+                    imageUrl: 'https://www.tennisnuts.com/images/product/full/WMNS-NIKE-LUNARTEMPO-2-818098_500_C_PREM.jpg',
                     size: 'large',
                     id: 4,
                     linkUrl: ''
                 },
                 {
                     title: 'Mens',
-                    imageUrl: 'https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1296&q=60',
+                    imageUrl: 'https://www.tennisnuts.com/images/product/full/Nike-Zoom-Vomero-9-Mens-Running-Shoe-642195_003_C_PREM.jpg',
+                    size: 'large',
+                    id: 5,
+                    linkUrl: ''
+                },
+                {
+                    title: 'Kids',
+                    imageUrl: 'https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/oymq8x2fxuejhfaykeiv/air-vapormax-2019-older-shoe-vwwMlD.jpg',
                     size: 'large',
                     id: 5,
                     linkUrl: ''
@@ -49,15 +38,11 @@ class Directory extends Component {
     render() {
         return (
             <div className = 'directory-menu'>
-                    {/* this.state.sections.map(({ title, imageUrl, id, size }) => (
-                        <MenuItem key= {id}title = {title} imageUrl = {imageUrl} size = {size}/>
-                    )) */}
-                    
-                    {
-                        this.state.sections.map(({id, ...rest}) => (
-                            <MenuItem key = {id} {...rest} />
-                        ))
-                    }
+                {
+                    this.state.sections.map(({id, ...rest}) => (
+                        <MenuItem key = {id} {...rest} />
+                    ))
+                }
             </div>
         )
     }

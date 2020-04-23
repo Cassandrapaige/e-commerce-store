@@ -1,0 +1,32 @@
+.nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-container {
+        height: 100%;
+        width: 120px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .options {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .option {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    }
+}

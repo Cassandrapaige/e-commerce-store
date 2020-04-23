@@ -18,7 +18,7 @@ constructor(props) {
             <div className = 'shop-page'>
                 {
                     collections.map(({id, ...rest}) => (
-                        <CollectionPreview key={id} {...rest} />
+                        <CollectionPreview key={id} {...rest} num = '4'/>
                     ))
                 }
             </div>
