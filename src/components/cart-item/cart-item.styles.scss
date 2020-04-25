@@ -15,5 +15,13 @@
         align-items: flex-start;
         justify-content: cemter;
         padding: 10px 20px;
+
+        .name {
+            font-weight: 300;
+        }
+
+        .price {
+            font-weight: 500;
+        }
     }
 }

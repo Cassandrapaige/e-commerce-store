@@ -7,9 +7,7 @@ import {addItem} from '../../redux/cart/cart.actions'
 import './collection-item.styles.scss'
 
 const CollectionItem = ({ item, addItem }) => {
-
-    const { name, price, imageUrl } = item;
-
+    const { name, price, description, imageUrl, tags} = item;
     return (
     <div className="collection-item">
         <div 
@@ -20,9 +18,12 @@ const CollectionItem = ({ item, addItem }) => {
         />
         <div className="collection-footer">
             <span className="name">{name}</span>
-            <span className="price">{price}</span>
+            <span className="description">{description}</span>
         </div>
-        <CustomButton onClick = {() => addItem(item)} nverted>Add to cart</CustomButton>
+        <div className="collection-tags">
+            {tags.map(tag => <span className = 'tag'>{tag}</span>)}
+        </div>
+        <CustomButton onClick = {() => addItem(item)} inverted>{price}<i class="fas fa-cart-arrow-down"></i> </CustomButton>
     </div>
 )}
 

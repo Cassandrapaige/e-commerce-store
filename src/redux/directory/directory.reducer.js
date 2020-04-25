@@ -1,22 +1,22 @@
 const INITIAL_STATE = {
     sections: [
         {
-            title: 'Womens',
-            imageUrl: 'https://www.tennisnuts.com/images/product/full/WMNS-NIKE-LUNARTEMPO-2-818098_500_C_PREM.jpg',
+            title: 'Shareables',
+            imageUrl: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?cs=srgb&dl=appetizer-bowl-delicious-1640772.jpg&fm=jpg',
             size: 'large',
-            id: 4,
+            id: 3,
             linkUrl: 'shop/womens'
         },
         {
-            title: 'Mens',
-            imageUrl: 'https://www.tennisnuts.com/images/product/full/Nike-Zoom-Vomero-9-Mens-Running-Shoe-642195_003_C_PREM.jpg',
+            title: 'Healthy Eating',
+            imageUrl: 'https://www.smartertravel.com/uploads/2017/07/Buddha-Bowls-1024x710.jpg',
             size: 'large',
-            id: 5,
+            id: 4,
             linkUrl: 'shop/mens'
         },
         {
-            title: 'Kids',
-            imageUrl: 'https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/oymq8x2fxuejhfaykeiv/air-vapormax-2019-older-shoe-vwwMlD.jpg',
+            title: 'Indulgences',
+            imageUrl: 'https://nationalpostcom.files.wordpress.com/2017/08/eatdeliciouscombof.jpg',
             size: 'large',
             id: 5,
             linkUrl: 'shop/kids'

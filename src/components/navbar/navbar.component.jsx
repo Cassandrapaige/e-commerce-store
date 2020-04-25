@@ -16,11 +16,11 @@ import './navbar.styles.scss'
 const Navbar = ({ currentUser, hidden }) => (
     <div class = 'nav'>
         <Link to = '/' className = 'logo-container'>
-            <img src={logo} alt="" className = 'logo'/>
+            <img src='https://tse4.mm.bing.net/th?id=OIP.i2rxJS-RNO2pzvCiPrpdswHaHP&pid=Api' alt="" className = 'logo'/>
         </Link>
         <nav className="options">
             <Link className = 'option' to = '/shop'>
-                SHOP
+                MENU
             </Link>
             <Link className = 'option' to = '/contact'>
                 CONTACT
