@@ -52,6 +52,11 @@ const config = {
   }
 
 
+  export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+    console.log(collectionRef);
+ }
+
   firebase.initializeApp(config);
 
   export const auth = firebase.auth();

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux'
 
 import CustomButton from '../custom-button/cutom-button.component'
@@ -7,24 +7,41 @@ import {addItem} from '../../redux/cart/cart.actions'
 import './collection-item.styles.scss'
 
 const CollectionItem = ({ item, addItem }) => {
-    const { name, price, description, imageUrl, tags} = item;
+    const { name, price, type, imageUrl, images} = item
+    const [showImages, setShowImages] = useState(false)
+    const [image, setImage] = useState(imageUrl)
+
+    const handleClick = type => setImage(type)
+    const handleMouseEnter = () => setShowImages(true)
+    const handleMouseLeave = () => {
+        setShowImages(false)
+        setImage(imageUrl)
+    }    
+    
     return (
     <div className="collection-item">
-        <div 
-            className="image"
-            style= {{
-                backgroundImage: `url(${imageUrl})`
-            }}
-        />
+        <img src = {image} alt = {name} className = 'image'/>
+
         <div className="collection-footer">
-            <span className="name">{name}</span>
-            <span className="description">{description}</span>
+            <div className="collection-footer-upper">
+                <span className="name">{name}</span>
+                <span className="price">${price}</span>
+            </div>
+            <span className="type">{type}</span>
+
+        <div className="images" 
+            onMouseEnter = {handleMouseEnter} 
+            onMouseLeave = {handleMouseLeave}>
+                    
+            {showImages ? 
+            <><img src = {imageUrl} alt = {name} onClick = {() => handleClick(imageUrl)}/>
+                {images.map(image => (
+                <img src={image} alt={name} onClick = {() => handleClick(image)}/>
+            ))}</>
+            : <span>{images.length + 1} Images </span>}        
         </div>
-        <div className="collection-tags">
-            {tags.map(tag => <span className = 'tag'>{tag}</span>)}
-        </div>
-        <CustomButton onClick = {() => addItem(item)} inverted>{price}<i class="fas fa-cart-arrow-down"></i> </CustomButton>
     </div>
+</div>
 )}
 
 const mapDispatchToProps = dispatch => ({

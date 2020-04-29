@@ -3,44 +3,42 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 
-import logo from '../../assets/logo.png'
+import {selectCartHidden} from '../../redux/cart/cart.selectors'
+import {selectCurrentUser} from '../../redux/user/user.selector'
+
 import { auth } from '../../firebase/firebase.utils'
 
 import CartIcon from '../cart-icon/cart-icon.components'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component'
-import {selectCartHidden} from '../../redux/cart/cart.selectors'
-import {selectCurrentUser} from '../../redux/user/user.selector'
 
-import './navbar.styles.scss'
+import {
+    NavbarContainer,
+    LogoContainer,
+    Logo,
+    OptionsContainer,
+    OptionLink,
+} from './navbar.styles'
 
 const Navbar = ({ currentUser, hidden }) => (
-    <div class = 'nav'>
-        <Link to = '/' className = 'logo-container'>
-            <img src='https://tse4.mm.bing.net/th?id=OIP.i2rxJS-RNO2pzvCiPrpdswHaHP&pid=Api' alt="" className = 'logo'/>
-        </Link>
-        <nav className="options">
-            <Link className = 'option' to = '/shop'>
-                MENU
-            </Link>
-            <Link className = 'option' to = '/contact'>
-                CONTACT
-            </Link>
+    <NavbarContainer>
+        <LogoContainer to = '/'>
+            <Logo src='https://tse4.mm.bing.net/th?id=OIP.i2rxJS-RNO2pzvCiPrpdswHaHP&pid=Api' alt="logo"/>
+        </LogoContainer>
 
+        <OptionsContainer>
+            <OptionLink to = '/shop'>MENU</OptionLink>
+            <OptionLink to = '/contact'>CONTACT</OptionLink>
             {
-                currentUser ? 
-                <div className='option' onClick = {() => auth.signOut()} > SIGN OUT </div>
+            currentUser ? 
+                <OptionLink as='div' onClick = {() => auth.signOut()} > SIGN OUT </OptionLink>
                 :
-                <Link className = 'option' to = '/login'>
-                SIGN IN
-                </Link>
+                <OptionLink to = '/login'>SIGN IN</OptionLink>
             }
             <CartIcon />
-        </nav>
-        {
-            hidden ? null :
-            <CartDropdown />
-        }
-    </div>
+        </OptionsContainer>
+
+        { hidden ? null : <CartDropdown /> }
+    </NavbarContainer>
 )
 
 // createStructuredSelector will automatically pass our top-level state into our selectors

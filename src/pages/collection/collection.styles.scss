@@ -1,7 +1,7 @@
 .collection-page {
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 50px 0px;
 
     .title {
         font-size: 38px;
@@ -10,12 +10,21 @@
 
     .items {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 10px;
 
         & .collection-item {
             margin-bottom: 30px;
         }
     }
+}
 
+@media (max-width: 1000px) {
+    .collection-page {    
+        .items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    }
 }
