@@ -1,6 +1,4 @@
 .collection-preview {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 30px;
 
     .title {
@@ -9,7 +7,36 @@
     }
 
     .preview {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 0;
+    }
+
+    .see_more {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 10px 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        button {
+            margin: 10px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .collection-preview {
+        .preview {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .see_more {
+            grid-column: 1/-1;
+            min-height: 400px;
+            background-position: bottom;
+        }
     }
 }

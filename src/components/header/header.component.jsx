@@ -4,12 +4,14 @@ import './header.styles.scss'
 
 const Header = () => {
     return (
-        <header style = {{backgroundImage: `url(https://weeattogether.com/wp-content/uploads/2017/01/Lemon-Mint-Pasta0190-e1485934512694.jpg)`}}>
+        <header>
             <div className="overlay">
-                <h1 className="header_title">
-                    All your favourite comfort foods
-                </h1>
-                <span>Delivered straight to your door <i class="fas fa-truck"></i></span>
+            <video 
+                playsInline loop muted autoPlay
+                id="video">
+                <source src='https://static.nike.com/a/videos/q_90,vc_vp9/kc6rpsxztlpgy70ztztp/video.webm'/>
+                Your browser does not support the video tag.
+            </video>
             </div>
         </header>
     )

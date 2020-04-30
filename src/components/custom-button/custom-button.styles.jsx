@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 const buttonStyles = css`
     background: black;
     color: white;
-    border: none;
+    border: 1px solid black;
 
     &:hover {
         background: white;
@@ -42,7 +42,6 @@ const getButtonStyles = props => {
 }
 
 export const CustomButtonContainer = styled.button`
-    width: 100%;
     letter-spacing: .5px;
     padding: 20px;
     font-size: 15px;
@@ -51,7 +50,6 @@ export const CustomButtonContainer = styled.button`
     font-weight: bolder;
     border: none;
     outline: none;
-    margin: 10px 0;
     cursor: pointer;
     display: flex;
     justify-content: center;

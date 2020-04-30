@@ -10,6 +10,7 @@ import Homepage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import CheckoutPage from './pages/checkout/checkout.component'
+import CollectionDetailsPage from './pages/collection-details/collection-details.component'
 
 import { auth, createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.utils'
 import {setCurrentUser} from './redux/user/user.actions'
@@ -17,11 +18,9 @@ import { selectCurrentUser } from './redux/user/user.selector';
 import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 
 class App extends Component {
-
   unsubscribeFromAuth = null;
 
   componentDidMount = () => {
-
     const {setCurrentUser, collectionsArray} = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {

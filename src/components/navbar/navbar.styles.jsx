@@ -9,7 +9,6 @@ export const NavbarContainer = styled.div`
     align-items: center;
     padding: 0 50px;
     z-index: 5000;
-    font-weight: 800;
     border-bottom: 1px solid #000;
     background: #fff;
 `
@@ -36,5 +35,5 @@ export const OptionLink = styled(Link)`
 `
 
 export const Logo = styled.img`
-    width: 50%;
+    width: 100%;
 `

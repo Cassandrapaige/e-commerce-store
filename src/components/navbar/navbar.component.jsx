@@ -22,11 +22,11 @@ import {
 const Navbar = ({ currentUser, hidden }) => (
     <NavbarContainer>
         <LogoContainer to = '/'>
-            <Logo src='https://tse4.mm.bing.net/th?id=OIP.i2rxJS-RNO2pzvCiPrpdswHaHP&pid=Api' alt="logo"/>
+            <Logo src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png' alt="logo"/>
         </LogoContainer>
 
         <OptionsContainer>
-            <OptionLink to = '/shop'>MENU</OptionLink>
+            <OptionLink to = '/shop'>SHOP</OptionLink>
             <OptionLink to = '/contact'>CONTACT</OptionLink>
             {
             currentUser ? 

@@ -9,7 +9,7 @@
     .image {
         width: 100%;
         object-fit: cover;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .collection-footer {
@@ -26,17 +26,50 @@
         }
 
         .type {
-            padding: 10px 0;
+            padding: 5px 0;
         }
     }
 
     .images {
-        margin-top: 10px;
-        height: 50px;
+        height: 30px;
+        width: 100%;
 
         img {
             width: 39px;
             margin: 0 2px;
+        }
+
+        .images-preview {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .collection-item {
+        .collection-footer {
+            padding: 0 10px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .collection-item {
+        .collection-footer {
+            font-size: 13px;
+
+            &-upper {
+                flex-direction: column;
+
+                .price {
+                    padding-top: 5px;
+                }
+            }
+
+            .images {
+                display: none;
+            }
         }
     }
 }

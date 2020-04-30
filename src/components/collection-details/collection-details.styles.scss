@@ -1,0 +1,46 @@
+.collection-details {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 20px;
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        &-upper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            margin: 5px 0;
+            border-radius: 50px;
+
+            .far {
+                padding-left: 10px;
+            }
+        }
+
+        h2 {
+            padding: 10px 0;
+        }
+
+        p {
+            line-height: 28px;
+            padding: 50px 0;
+        }
+    }
+}
+
+.details-image-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    img, video {
+        object-fit: cover;
+        width: 100%;
+    }
+}

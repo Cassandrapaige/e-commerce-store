@@ -1,11 +1,13 @@
 const SHOP_DATA = {
     womens: {
       id: 1,
-      title: 'Womens',
+      mainImg: 'https://edge.curalate.com/v1/img/HvebXD58Km5hxQAqpI8aSjYepn6ADR5F9oupPYwCp-I=/sc/1080x1080?spatialTags=0.5980216860771179:0.8595675826072693,0.3565967381000519:0.4335164427757263,0.4482142925262451:0.2785714268684387,0.5607143044471741:0.550000011920929',
+      title: "Women's Trainers & Shoes",
       routeName: 'womens',
       items: [
         {
           id: 1,
+          type: "Women's Running Shoe",
           name: 'Nike Zoom Pegasus Turbo 2',
           description: 'The Nike Zoom Pegasus Turbo 2 is updated with a feather-light upper, while innovative foam brings revolutionary responsiveness to your long-distance training.',
           colour: 'Pink Blast/Black/True Berry/White',
@@ -24,6 +26,7 @@ const SHOP_DATA = {
         },
         {
           id: 2,
+          type: "Women's Shoe",
           name: 'Nike Joyride Run Flyknit',
           description: 'The Nike Joyride Run Flyknit is designed to help make running feel easier and give your legs a day off. Tiny foam beads underfoot contour to your foot for cushioning that stands up to your mileage.',
           colour: 'White/Platinum Tint/Bright Mango/Racer Blue',
@@ -42,6 +45,7 @@ const SHOP_DATA = {
         },
         {
           id: 3,
+          type: "Women's Running Shoe",
           name: 'Nike React Infinity Run Flyknit',
           description: 'The Nike React Infinity Run Flyknit is designed to keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Lace up and feel the potential as you hit the road.',
           colour: 'Bright Melon/Ember Glow/Black',
@@ -60,6 +64,7 @@ const SHOP_DATA = {
         },
         {
         id: 4,
+        type: "Women's Shoe",
         name: 'Nike Air Max 270 React ("Psychedelic Movement")',
         description: 'Follow the path between consciousness and subconscious in your psychedelic art-inspired Nike Air Max 270 React. It fuses colours of electric sunsets and dancing flowers, while soft cushioning takes you into the clouds.',
         colour: 'Electro Green/Blue Lagoon/Hyper Jade/Flash Crimson',
@@ -77,6 +82,7 @@ const SHOP_DATA = {
       },
       {
         id: 5,
+        type: "Women's Shoe",
         name: 'Nike React Element 55 Premium',
         description: 'The Nike React Element 55 is a balanced blend of classic design and forward-looking innovation. Nike React foam delivers lightweight, bouncy comfort, while rubber outsole pods and an exaggerated outsole offer a cutting-edge look that begs a reaction.',
         colour: 'Black/Coral Stardust/Light Soft Pink/Volt',
@@ -94,6 +100,7 @@ const SHOP_DATA = {
       },
       {
         id: 6,
+        type: "Women's Shoe",
         name: 'Nike Air Max Dia Icon Clash',
         description: 'The Nike Air Max Dia Icon Clash delivers a lifted look and airy aesthetic in a sleek shape. The minimal upper modernises the look, while a Max Air unit, surrounded by clear TPU, is amplified even further by an exaggerated midsole for a boost of style.',
         colour: 'White/Metallic Gold/Pure Platinum/Black',
@@ -111,6 +118,7 @@ const SHOP_DATA = {
       },
       {
         id: 7,
+        type: "Women's Shoe",
         name: 'Nike Air Max Dia SE',
         description: 'The Nike Air Max Dia SE features sleek lines and a sheer upper that combine classic Air Max elements into a lightweight, comfy and versatile icon. Together with its smart toe-down profile and extra lift, the Nike Air Max Dia SE offers an ever-bigger expression of Nike Air.',
         colour: 'Pale Ivory/Summit White/Bright Crimson/Black',
@@ -129,6 +137,7 @@ const SHOP_DATA = {
       },
       {
         id: 8,
+        type: "Women's Shoe",
         name: 'Air Jordan 1 Mid SE',
         description: "A new, colourful spin on an icon. The Air Jordan 1 Mid SE gives you the unmistakable style and attitude of the original AJ1 with a fit that's updated for versatility.",
         colour: 'White/Lightbulb/Team Orange/Black',
@@ -149,7 +158,8 @@ const SHOP_DATA = {
     },
     mens: {
       id: 2,
-      title: 'Mens',
+      mainImg: 'https://content.asos-media.com/-/media/images/articles/men/2019/07/18-thurs/nike-air-max-270-react/style-feed-article-nike-270-react-06.jpg?h=1110&w=870&la=es-ES&hash=93DEC8733EB2483C03036FD7987FADB7',
+      title: "Men's Trainers & Shoes",
       routeName: 'mens',
       items: [
         {
@@ -191,7 +201,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "walking"]
         },
         {
-          id: 10,
+          id: 11,
           name: 'Nike SuperRep Go',
           type: "Men's Training shoe",
           description: 'The Nike SuperRep Go combines comfortable foam cushioning, flexibility and support to get you moving in circuit-based fitness classes or while streaming workouts at home.',
@@ -210,7 +220,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "trainging & gym", "running", "athletics", "walking"]
         },
         {
-          id: 10,
+          id: 12,
           name: 'LeBron 17',
           type: "Basketball Shoe",
           description: "The LeBron 17 harnesses LeBron's strength and speed with containment and support for all-court domination. It features a lightweight mix of knit and heat-moulded yarns that gives each one a durable look and feel. Combined cushioning provides LeBron with the impact support and responsive energy return he needs to power through the long season.",
@@ -228,7 +238,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "jordan", "basketball", "athletics"]
         },
         {
-          id: 10,
+          id: 13,
           name: 'PG 4',
           type: "Basketball shoe",
           description: "Paul George is the rare high-percentage shooter who's also a coach's dream on D. Designed for his unrivalled 2-way game, the PG 4 unveils a new cushioning system that's lightweight, articulated and responsive, ideal for players like PG who go hard every play.",
@@ -247,7 +257,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "basketball", "athletics"]
         },
         {
-          id: 10,
+          id: 14,
           name: 'Nike Air Zoom Pegasus 36 Trail',
           type: "Men's Trail Running Shoe",
           description: 'An icon trades pavement for path with the Nike Air Zoom Pegasus 36 Trail. A perforated mesh upper adds breathability, as double Zoom Air units underfoot cushion your stride. Opposing lugs on the outsole optimise traction on your uphill climbs.',
@@ -266,7 +276,7 @@ const SHOP_DATA = {
           tags: ["lifestyles", "walking shoes"]
         },
         {
-          id: 10,
+          id: 15,
           name: 'NikeCourt Tech Challenge 20',
           type: "Men's Tennis Shoe",
           description: "Celebrating the 30th anniversary of the Nike Air Tech Challenge 2, the NikeCourt Tech Challenge 20 puts a modern spin on an iconic court shoe. You'll get the same vibrant graphics found on the original design with the added comfort of modern materials.",
@@ -285,7 +295,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "tennis"]
         },
         {
-          id: 10,
+          id: 16,
           name: 'Nike Phantom Vision Elite Dynamic Fit FG',
           type: "Firm-Ground Football Boot",
           description: "The Nike Phantom Vision Elite Dynamic Fit FG brings the fierce precision of street play to the pitch. A foot-hugging inner sleeve is concealed in a Flyknit constructed outer layer to create a boot for the finishers, the providers and the battlers of tomorrow's game.",
@@ -307,11 +317,12 @@ const SHOP_DATA = {
     },
     kids: {
       id: 3,
+      mainImg: 'https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/q0mpvjimq6dvjjxg0ha5/elemental-kids-backpack-OnTrAEV8.jpg',
       title: 'Kids',
       routeName: 'kids',
       items: [
         {
-          id: 10,
+          id: 17,
           name: 'Nike Air Max 90 FlyEase',
           type: "Older Kids' Shoe",
           description: "Iconic kicks remade for kids to get in and out of quickly? We're in! The Nike Air Max 90 FlyEase is super-easy—stomp on the heel, slip your foot in and watch the shoe pop back into place. So magical that you'll need to feel it to believe it.",
@@ -329,99 +340,137 @@ const SHOP_DATA = {
           price: 130,
           tags: ["lifestyle"]
         },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
-        {
-          id: 10,
-          name: '',
-          description: '',
-          colour: '',
-          imageUrl: '',
-          videoUrl: '',
-          images: [
-
-          ],
-          price: 195,
-          tags: ["Men's shoe", "mens"]
-        },
+            {
+              id: 18,
+              type: "Kids Running Shoe",
+              name: 'Nike Zoom Pegasus Turbo 2',
+              description: 'The Nike Zoom Pegasus Turbo 2 is updated with a feather-light upper, while innovative foam brings revolutionary responsiveness to your long-distance training.',
+              colour: 'Pink Blast/Black/True Berry/White',
+              imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wvmovmshpndwztxisa32/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+              videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/k6jr6yrm4x9r6n3x7ak8/video.webm',
+              images: [
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/xuzpd3x2qjs2qwgjw5sr/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/ntrzwn9r3cy5bbzxifyu/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/qlbuv1ccjowkgy7vxa0v/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/onhv9nnkozmeo78elodi/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/xjz2qtigh3pcgwnmuzpb/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/vllj9co6mj865salg9zy/zoom-pegasus-turbo-2-running-shoe-PDDCHc.jpg'
+              ],
+              price: 235,
+              tags: ["Kids Running Shoe", "womens"]
+            },
+            {
+              id: 19,
+              type: "Kids Running Shoe",
+              name: 'Nike Joyride Run Flyknit',
+              description: 'The Nike Joyride Run Flyknit is designed to help make running feel easier and give your legs a day off. Tiny foam beads underfoot contour to your foot for cushioning that stands up to your mileage.',
+              colour: 'White/Platinum Tint/Bright Mango/Racer Blue',
+              imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e4i53xwtw6gyjufm6mym/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+              videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/kc6rpsxztlpgy70ztztp/video.webm',
+              images: [
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/cvlxdd78cwqj0uoxzzy9/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/qrs5y9hqpunmj0khircy/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/vpu1dqtg4ei0omdfigcz/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/sn3f9mfcdanhxpqep98x/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/lgkywfysnrkivufxcifb/joyride-run-flyknit-running-shoe-9R1ktX.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/sbklivgqb9idpcry8pjw/joyride-run-flyknit-running-shoe-9R1ktX.jpg'
+              ],
+              price: 235,
+              tags: ["Kids Shoe", "womens"]
+            },
+            {
+              id: 20,
+              type: "Kids Running Shoe",
+              name: 'Nike React Infinity Run Flyknit',
+              description: 'The Nike React Infinity Run Flyknit is designed to keep you on the run. More foam and improved upper details provide a secure and cushioned feel. Lace up and feel the potential as you hit the road.',
+              colour: 'Bright Melon/Ember Glow/Black',
+              imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/i1-ceb52d30-900c-4220-a3e8-16022953e28a/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+              videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/f00a9f00-2824-4bc8-9297-889caba516e5/video.webm',
+              images: [
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-74cad647-f203-45d0-8e98-de410331d3e9/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-a88336b5-7b8a-4b84-b364-731624aebd05/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-0fdf8a15-6bea-4182-bed7-8b9bd2d4319b/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-339f9adb-ae87-41d6-a62c-ddfd779c2dff/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-43a8bb68-fbdd-4fc6-a013-a9ccbb7da79e/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg',
+                'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i1-97a5368e-0b1f-48c9-9af8-9c7c609887a5/react-infinity-run-flyknit-running-shoe-pl6fKJ.jpg'
+              ],
+              price: 215,
+              tags: ["Kids Running Shoe", "womens"]
+            },
+            {
+            id: 21,
+            type: "Kids Running Shoe",
+            name: 'Nike Air Max 270 React ("Psychedelic Movement")',
+            description: 'Follow the path between consciousness and subconscious in your psychedelic art-inspired Nike Air Max 270 React. It fuses colours of electric sunsets and dancing flowers, while soft cushioning takes you into the clouds.',
+            colour: 'Electro Green/Blue Lagoon/Hyper Jade/Flash Crimson',
+            imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/x2ihxsan4qjrvirja1lm/air-max-270-react-shoe-GCcKSq.jpg',
+            videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/gkbhxnz7qzj8us3uzqbr/video.webm',
+            images: [
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/i5db0ikhnmywyoyuqr5r/air-max-270-react-shoe-GCcKSq.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/uz118pwylcyqkmm7j0cj/air-max-270-react-shoe-GCcKSq.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/sdjm9v7shr3yj9yzfnzv/air-max-270-react-shoe-GCcKSq.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/gojcht6ib66bwhidtinn/air-max-270-react-shoe-GCcKSq.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/mofict8t8aavnljssosh/air-max-270-react-shoe-GCcKSq.jpg',
+            ],
+            price: 195,
+            tags: ["Kids Shoe", "womens"]
+          },
+          {
+            id: 22,
+            type: "Kids Running Shoe",
+            name: 'Nike React Element 55 Premium',
+            description: 'The Nike React Element 55 is a balanced blend of classic design and forward-looking innovation. Nike React foam delivers lightweight, bouncy comfort, while rubber outsole pods and an exaggerated outsole offer a cutting-edge look that begs a reaction.',
+            colour: 'Black/Coral Stardust/Light Soft Pink/Volt',
+            imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/lzztwyeow1jqb2crwqp3/react-element-55-shoe-7sd1ql.jpg',
+            videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/dheivhdo4mzl3l4ubs2w/video.webm',
+            images: [
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/oq5unnrdxpl6mkj9qoov/react-element-55-shoe-7sd1ql.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/v5l4kqgsm4ixlzceckmb/react-element-55-shoe-7sd1ql.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/p8n0bmd6ufrsfcvhqi77/react-element-55-shoe-7sd1ql.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/jl3xvd5ttfpk9rhdbuam/react-element-55-shoe-7sd1ql.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/fleb9lq2cmiuawvwfmy2/react-element-55-shoe-7sd1ql.jpg',
+            ],
+            price: 185,
+            tags: ["Kids Shoe", "womens"]
+          },
+          {
+            id: 23,
+            type: "Kids Running Shoe",
+            name: 'Nike Air Max Dia Icon Clash',
+            description: 'The Nike Air Max Dia Icon Clash delivers a lifted look and airy aesthetic in a sleek shape. The minimal upper modernises the look, while a Max Air unit, surrounded by clear TPU, is amplified even further by an exaggerated midsole for a boost of style.',
+            colour: 'White/Metallic Gold/Pure Platinum/Black',
+            imageUrl: 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/lmq0c0cqcpekuk7ejzxb/air-max-dia-icon-clash-shoe-VzvlcR.jpg',
+            videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/oqq80dxdcqy8boz0ua7n/video.webm',
+            images: [
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/c9snop30r81yunjil7m5/air-max-dia-icon-clash-shoe-VzvlcR.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/w30ellkdewmzpxfab0nr/air-max-dia-icon-clash-shoe-VzvlcR.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/hgv7wkw2idxnrozzatgj/air-max-dia-icon-clash-shoe-VzvlcR.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/h9auh5ofp7l7ldjrtqpd/air-max-dia-icon-clash-shoe-VzvlcR.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/ypazklikm1ljedqk1xln/air-max-dia-icon-clash-shoe-VzvlcR.jpg'
+            ],
+            price: 145,
+            tags: ["Kids Shoe", "womens"]
+          },
+          {
+            id: 24,
+            type: "Kids Running Shoe",
+            name: 'Nike Air Max Dia SE',
+            description: 'The Nike Air Max Dia SE features sleek lines and a sheer upper that combine classic Air Max elements into a lightweight, comfy and versatile icon. Together with its smart toe-down profile and extra lift, the Nike Air Max Dia SE offers an ever-bigger expression of Nike Air.',
+            colour: 'Pale Ivory/Summit White/Bright Crimson/Black',
+            imageUrl: 'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/wiikh0vridjk9q2bs7ez/air-max-dia-se-shoe-SX3F1x.jpg',
+            videoUrl: 'https://static.nike.com/a/videos/q_90,vc_vp9/dp8g5cnhbdltfqbaxe5d/video.webm',
+            images: [
+              'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/sobfiufsszzdwj6whctg/air-max-dia-se-shoe-SX3F1x.jpg',
+              'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/knupe0mmgkd8su5qfshd/air-max-dia-se-shoe-SX3F1x.jpg',
+              'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/vxfm7bsmvkhjzj0qqmdj/air-max-dia-se-shoe-SX3F1x.jpg',
+              'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/iswln438wpuaweff4cfj/air-max-dia-se-shoe-SX3F1x.jpg',
+              'https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/gqagapvzhokj0b8y7fsh/air-max-dia-se-shoe-SX3F1x.jpg',
+              'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/zr1xthm5u4cgyhopv610/air-max-dia-se-shoe-SX3F1x.jpg'
+            ],
+            price: 155,
+            tags: ["Kids Shoe", "womens"]
+          }
       ]
-    }
-}
+}}
 
 export default SHOP_DATA
