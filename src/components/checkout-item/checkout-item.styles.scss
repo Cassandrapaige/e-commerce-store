@@ -10,13 +10,7 @@
 .checkout-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
-    .colour {
-        color: #757575;
-        font-size: 16px;
-        margin-top: -15px;
-    }
+    justify-content: space-between;
 }
 
 .image-container {
@@ -29,15 +23,26 @@
     }
 }
 
+.colour {
+    color: #757575;
+    font-size: 14px;
+}
+
 .checkout-dropdowns {
     display: flex;
-    color: #8D8D8D;
     font-size: 18px;
     font-size: 16px;
 
     .quantity {
         display: flex;
         margin-left: 50px;
+    }
+
+    .size span, 
+    .quantity, 
+    .value, 
+    .arrow{
+        color: #757575;
     }
 
     .value {
@@ -52,7 +57,8 @@
 .remove-button {
     cursor: pointer;
     border-bottom: 1px solid #8D8D8D;
-    padding: 2px 0;
+    padding-top: 10px;
+    margin-bottom: 5px;
     color: #8D8D8D;
     width: 60px;
     font-size: 16px;

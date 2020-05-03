@@ -46,15 +46,40 @@ const config = {
     }
 
     //return userRef to reference it throughout our application
-    console.log(snapShot);
-
     return userRef;
   }
 
-
-  export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+  export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = firestore.collection(collectionKey);
-    console.log(collectionRef);
+
+    // Group all of our calls into one single request -> gauranteed consistency across data calls
+    const batch = firestore.batch();
+    objectsToAdd.forEach(obj => {
+
+        // Return a new document ref in collection with randomly generated ID 
+        // Ability to pass in own ID ie. 'collectionRef.doc(obj.title)'
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef, obj);
+    })
+
+    return await batch.commit()
+ }
+
+ export const convertCollectionsSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map(doc => {
+        const {title, items, routeName} = doc.data();
+        return {
+            routeName: encodeURI(routeName),
+            id: doc.id,
+            title,
+            items,
+            routeName
+        }
+    })
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.routeName] = collection;
+        return accumulator;
+    }, {})
  }
 
   firebase.initializeApp(config);

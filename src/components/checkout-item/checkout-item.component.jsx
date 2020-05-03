@@ -19,16 +19,19 @@ return (
         </div>
 
     <div className="checkout-info">
-        <ItemHeader item = {cartItem} />
-        <span className = 'colour'>{colour}</span>
+        <div>
+        <ItemHeader item = {cartItem}>
+            <span className = 'colour'>{colour}</span>
+        </ItemHeader>
         <div className="checkout-dropdowns">
-        <div className="size">
-            <span>Size {size}</span>
-        </div>
-        <div className="quantity">
-            <div className="arrow" onClick = {() => removeItem(cartItem)}>&#10094;</div>
-                <span className="value">Quantity {quantity}</span>
-            <div className="arrow" onClick = {() => addItem(cartItem)}>&#10095;</div>
+            <div className="size">
+                <span>Size {size}</span>
+            </div>
+            <div className="quantity">
+                <div className="arrow" onClick = {() => removeItem(cartItem)}>&#10094;</div>
+                    <span className="value">Quantity {quantity}</span>
+                <div className="arrow" onClick = {() => addItem(cartItem)}>&#10095;</div>
+            </div>
         </div>
         </div>
         <div className="remove-button" onClick = {() => clearItem(cartItem)}>Remove</div>

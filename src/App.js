@@ -10,17 +10,27 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import CheckoutPage from './pages/checkout/checkout.component'
 import CollectionDetailsPage from './pages/collection-details/collection-details.component'
 
-import { auth, createUserProfileDocument, addCollectionAndDocuments } from './firebase/firebase.utils'
+import { 
+      auth, 
+      createUserProfileDocument, 
+      addCollectionAndDocuments 
+    } from './firebase/firebase.utils'
 
 import {setCurrentUser} from './redux/user/user.actions'
 
 import { selectCurrentUser } from './redux/user/user.selector';
-import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 import { selectCartHidden } from './redux/cart/cart.selectors'
+
+// import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 
 import './App.scss';
 
-const App = ({setCurrentUser, collectionsArray, hidden, currentUser}) =>  {
+const App = (
+      {setCurrentUser, 
+      // collectionsArray, 
+      hidden, 
+      currentUser}) =>  {
+
   let unsubscribeFromAuth = null;
 
   useEffect(() => {
@@ -39,7 +49,10 @@ const App = ({setCurrentUser, collectionsArray, hidden, currentUser}) =>  {
         })}
       // user will be set to null
       setCurrentUser(userAuth);
-      addCollectionAndDocuments('collections', collectionsArray);
+
+      // Ability to remove all collections data once added to firestore
+      // Destructure values to save to DB --> no need to save ids as firestore will be generating unique ids for each item
+      // addCollectionAndDocuments('collections', collectionsArray.map(({title, routeName, items}) => ({ title, routeName, items})));
     })
     return () => unsubscribeFromAuth();
   }, [])
@@ -62,7 +75,7 @@ const App = ({setCurrentUser, collectionsArray, hidden, currentUser}) =>  {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectCollectionForPreview,
+  // collectionsArray: selectCollectionForPreview,
   hidden: selectCartHidden
 })
 

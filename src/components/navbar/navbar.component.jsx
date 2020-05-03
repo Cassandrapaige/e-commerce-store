@@ -43,7 +43,7 @@ const Navbar = ({ currentUser, hidden, routeName, collections }) => (
 
             <OptionsContainer>
                     <OptionLink to ='/shop'>DISCOVER</OptionLink>
-                {collections.map(collection => (
+                {collections.map(collection => collection.routeName !== undefined &&(
                     <OptionLink to = {`/shop/${collection.routeName}`}>{collection.routeName.toUpperCase()}</OptionLink>
                 ))}
         
