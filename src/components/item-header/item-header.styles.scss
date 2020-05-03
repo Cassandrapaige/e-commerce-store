@@ -2,7 +2,7 @@
     width: 100%;
     font-size: 16px;
     color: #666;
-    line-height: 26px;
+    line-height: 30px;
     
     &-upper {
         display: flex;
@@ -14,4 +14,8 @@
             line-height: 16px;
         }
     }
+
+        .type {
+            color: #757575;
+        }
 }

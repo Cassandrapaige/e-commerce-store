@@ -29,8 +29,11 @@
         }
 
         button {
-            margin: 5px 0;
 
+            &:nth-of-type(1) {
+                margin-top: 10px;
+            }
+            
             .far {
                 padding-left: 10px;
             }
