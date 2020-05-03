@@ -1,0 +1,17 @@
+.item-header {
+    width: 100%;
+    font-size: 16px;
+    color: #666;
+    line-height: 26px;
+    
+    &-upper {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        line-height: 100%;
+        
+        .name {
+            line-height: 16px;
+        }
+    }
+}

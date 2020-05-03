@@ -1,7 +1,4 @@
 .collection-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
     padding: 5px;
     background: #fff;
@@ -12,27 +9,10 @@
         margin-bottom: 15px;
     }
 
-    .collection-footer {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        font-size: 16px;
-        color: #666;
-
-        &-upper {
-            display: flex;
-            justify-content: space-between;
-            color: #000;
-        }
-
-        .type {
-            padding: 5px 0;
-        }
-    }
-
     .images {
         height: 30px;
         width: 100%;
+        margin-top: 8px;
 
         img {
             width: 39px;

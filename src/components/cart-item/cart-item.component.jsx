@@ -1,17 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {withRouter} from 'react-router-dom'
+
+import {toggleCartHidden} from '../../redux/cart/cart.actions'
+
+import ItemHeader from '../item-header/item-header.component'
 
 import './cart-item.styles.scss'
 
-const CartItem = ({ item: { imageUrl, price, name, quantity }}) => (
-    <div className="cart-item">
+const CartItem = ({item, history, dispatch}) => {
+    
+    const {imageUrl, price, name, type, id} = item;
+    return (
+    <div className="cart-item" onClick = {() => {
+        dispatch(toggleCartHidden())
+        history.push(`/shop/details/${id}`)}}
+    >
         <img src={imageUrl} alt={name}/>
         <div className="item-details">
-            <span className="name">{name}</span>
-            <span className="price">
-                {quantity} x ${price}
-            </span>
+            <ItemHeader item = {item}/>
         </div>
     </div>
-)
+)}
 
-export default CartItem
+export default withRouter(connect()(CartItem))

@@ -20,6 +20,10 @@ const invertedButtonStyles = css`
     &:hover {
         background: black;
         color: white;
+
+        .far {
+            color: #fff;
+        }
     }
 `
 
@@ -53,6 +57,7 @@ export const CustomButtonContainer = styled.button`
     cursor: pointer;
     display: flex;
     justify-content: center;
+    border-radius: 50px;
 
     ${getButtonStyles}
 `

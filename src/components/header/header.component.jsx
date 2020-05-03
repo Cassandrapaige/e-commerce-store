@@ -1,20 +1,19 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 
 import './header.styles.scss'
+import CustomButton from '../custom-button/cutom-button.component'
 
-const Header = () => {
+const Header = ({history}) => {
     return (
-        <header>
+        <header style = {{ backgroundImage: `url(https://sneakernews.com/wp-content/uploads/2018/12/nike-epic-react-flyknit-2-pixel-1.jpg)`}}>
             <div className="overlay">
-            <video 
-                playsInline loop muted autoPlay
-                id="video">
-                <source src='https://static.nike.com/a/videos/q_90,vc_vp9/kc6rpsxztlpgy70ztztp/video.webm'/>
-                Your browser does not support the video tag.
-            </video>
+                <span>Epic React Flyknit</span>
+                <h1>More foam than ever</h1>
+                <CustomButton inverted onClick = {() => history.push('/shop/details/9')}>Shop</CustomButton>
             </div>
         </header>
     )
 }
 
-export default Header;
+export default withRouter(Header);

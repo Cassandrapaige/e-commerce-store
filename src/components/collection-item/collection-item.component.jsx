@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
 import CustomButton from '../custom-button/cutom-button.component'
-import {addItem} from '../../redux/cart/cart.actions'
 
 import './collection-item.styles.scss'
+import ItemHeader from '../item-header/item-header.component'
 
 const CollectionItem = ({ item, history, match}) => {
     const { name, price, type, imageUrl, images, id} = item
@@ -27,14 +27,9 @@ const CollectionItem = ({ item, history, match}) => {
 
         <img src = {image} alt = {name} className = 'image'/>
         <div className="collection-footer">
-            <div className="collection-footer-upper">
-                <span className="name">{name}</span>
-                <span className="price">${price}</span>
-            </div>
-            <span className="type">{type}</span>
-
-        <div className="images">
-                    
+            <ItemHeader item = {item} />
+            
+            <div className="images">       
             {showImages ? 
             <div class = 'images-preview'>
                 <img src = {imageUrl} alt = {name} 

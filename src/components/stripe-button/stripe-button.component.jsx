@@ -16,10 +16,10 @@ const StripeCheckoutButton = ({ price }) => {
     return (
         <StripeCheckout
             label = 'Pay Now'
-            name = 'Cozy Eaters'
+            name = 'Nike'
             billingAddress
             shippingAddress
-            image = 'https://tse4.mm.bing.net/th?id=OIP.i2rxJS-RNO2pzvCiPrpdswHaHP&pid=Api'
+            image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/1200px-Logo_NIKE.svg.png'
             description = {`Your total is $${price}`}
             amount = {priceForStripe}
             panelLabel = 'Pay Now'

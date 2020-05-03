@@ -21,11 +21,27 @@ export const selectCartItemsCount = createSelector(
     )
 )
 
-export const selectCartTotal = createSelector(
+export const selectCartSubtotal = createSelector(
     [selectCartItems],
     cartItems => 
     cartItems.reduce(
         (accumlatedQuantity, cartItem) => 
         accumlatedQuantity + cartItem.quantity * cartItem.price, 0
     )
+)
+
+export const selectCartTaxes = createSelector(
+    [selectCartSubtotal],
+    cartItems => (cartItems * 0.13).toFixed(2)
+)
+
+export const selectShippingTotal = createSelector(
+    [selectCartSubtotal],
+    cartItems => cartItems >= 1 && cartItems < 200 ? 10.00 : 0.00
+)
+
+export const selectCartTotal = createSelector(
+    [selectCartSubtotal, selectCartTaxes, selectShippingTotal],
+    (cartItems, taxes, shipping) => 
+        (Number(cartItems) + Number(taxes) + Number(shipping)).toFixed(2)
 )

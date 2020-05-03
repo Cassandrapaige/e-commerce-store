@@ -4,9 +4,8 @@ import {getItemDetails} from '../../redux/shop/shop.selectors'
 import CollectionDetails from '../../components/collection-details/collection-details.component'
 
 const CollectionDetailsPage = ({collections}) => {
-    console.log(collections)
     return (
-        <div>
+        <div className = 'collection-details-page'>
            {collections.map(collection => (
                <CollectionDetails items = {collection}/>
             ))
@@ -16,7 +15,7 @@ const CollectionDetailsPage = ({collections}) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    collections: getItemDetails(ownProps.match.params.itemId)(state)
+    collections: getItemDetails(ownProps.match.params.itemId)(state),
 })
 
 export default connect(mapStateToProps)(CollectionDetailsPage)

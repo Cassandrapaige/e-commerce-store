@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import {clearItemFromCart, 
         addItem, 
@@ -7,23 +8,31 @@ import {clearItemFromCart,
         from '../../redux/cart/cart.actions'
 
 import './checkout-item.styles.scss'
+import ItemHeader from '../item-header/item-header.component'
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-
-const {imageUrl, name, quantity, price} = cartItem;
+const CheckoutItem = ({ history, cartItem, clearItem, addItem, removeItem }) => {
+const {imageUrl, name, type, quantity, price, id, size, colour} = cartItem;
 return (
     <div className="checkout-item">
         <div className="image-container">
-            <img src={imageUrl} alt={name}/>
+            <img src={imageUrl} alt={name} onClick = {() => {history.push(`/shop/details/${id}`)}}/>
         </div>
-        <span className="name">{name}</span>
-        <span className="quantity">
+
+    <div className="checkout-info">
+        <ItemHeader item = {cartItem} />
+        <span className = 'colour'>{colour}</span>
+        <div className="checkout-dropdowns">
+        <div className="size">
+            <span>Size {size}</span>
+        </div>
+        <div className="quantity">
             <div className="arrow" onClick = {() => removeItem(cartItem)}>&#10094;</div>
-                <span className="value">{quantity}</span>
+                <span className="value">Quantity {quantity}</span>
             <div className="arrow" onClick = {() => addItem(cartItem)}>&#10095;</div>
-        </span>
-        <span className="price">${price}</span>
-        <div className="remove-button" onClick = {() => clearItem(cartItem)}>&#10005;</div>
+        </div>
+        </div>
+        <div className="remove-button" onClick = {() => clearItem(cartItem)}>Remove</div>
+    </div>
     </div>
 )}
 
@@ -33,4 +42,4 @@ const mapDispatchToProps = dispatch => ({
     removeItem: item => dispatch(removeItem(item))
 })
 
-export default connect(null, mapDispatchToProps)(CheckoutItem)
+export default withRouter(connect(null, mapDispatchToProps)(CheckoutItem))

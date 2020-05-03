@@ -1,13 +1,16 @@
 import React from 'react'
 
-import Directory from '../../components/directory/directory.component'
 import Header from '../../components/header/header.component'
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
+
+import './homepage.styles.scss'
 
 const homepage = () => {
     return (
         <div className="homepage">
             <Header />
-            <Directory />
+            <h3>Shop our collections</h3>
+            <CollectionsOverview />
         </div>
     )
 }

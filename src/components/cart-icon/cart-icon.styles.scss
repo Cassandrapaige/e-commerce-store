@@ -6,16 +6,27 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    padding-left: 25px;
 
-    .shopping-icon {
-        width: 24px;
-        height: 24px;
+    .fa-shopping-cart {
+        position: relative;
+        color: #757575;
+        font-size: 16px;
     }
 
     .item-count {
         position: absolute;
         font-size: 10px;
         font-weight: bold;
-        bottom: 14px;
+        top: 7px;
+        right: -3px;
+        background: #FA5400;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
     }
 }
