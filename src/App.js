@@ -21,13 +21,13 @@ import {setCurrentUser} from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector';
 import { selectCartHidden } from './redux/cart/cart.selectors'
 
-// import {selectCollectionForPreview} from './redux/shop/shop.selectors'
+import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 
 import './App.scss';
 
 const App = (
       {setCurrentUser, 
-      // collectionsArray, 
+      collectionsArray, 
       hidden, 
       currentUser}) =>  {
 
@@ -52,7 +52,7 @@ const App = (
 
       // Ability to remove all collections data once added to firestore
       // Destructure values to save to DB --> no need to save ids as firestore will be generating unique ids for each item
-      // addCollectionAndDocuments('collections', collectionsArray.map(({title, routeName, items}) => ({ title, routeName, items})));
+      addCollectionAndDocuments('collections', collectionsArray.map(({title, routeName, items, mainImg}) => ({ title, routeName, items, mainImg})));
     })
     return () => unsubscribeFromAuth();
   }, [])
@@ -75,7 +75,7 @@ const App = (
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  // collectionsArray: selectCollectionForPreview,
+  collectionsArray: selectCollectionForPreview,
   hidden: selectCartHidden
 })
 

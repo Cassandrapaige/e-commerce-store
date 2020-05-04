@@ -4,6 +4,7 @@ import {getItemDetails} from '../../redux/shop/shop.selectors'
 import CollectionDetails from '../../components/collection-details/collection-details.component'
 
 const CollectionDetailsPage = ({collections}) => {
+    console.log(collections)
     return (
         <div className = 'collection-details-page'>
            {collections.map(collection => (

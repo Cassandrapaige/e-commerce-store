@@ -18,8 +18,20 @@ export const selectCollection = collectionUrlParam => createSelector(
     collections => collections ? collections[collectionUrlParam] : null
 )
 
-export const getItemDetails = (itemId) => createSelector(
+export const getItemDetails = itemId => createSelector(
     [selectCollectionForPreview],
-    collections => collections.map(collection => 
-        collection.items.filter(item => item.id == itemId)),
+    collections => collections
+        .map(collection => collection.items
+        .filter(item => item.id == itemId))
 )
+
+export const selectIsCollectionFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+)
+
+export const selectIsCollectionLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collections 
+)
+

@@ -1200,6 +1200,7 @@ const SHOP_DATA = {
           tags: ["lifestyle", "walking", "running"]
         }
       ]
-}}
+  }
+}
 
 export default SHOP_DATA

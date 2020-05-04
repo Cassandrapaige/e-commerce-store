@@ -5,7 +5,6 @@ import {createStructuredSelector} from 'reselect'
 
 import {selectCartHidden} from '../../redux/cart/cart.selectors'
 import {selectCurrentUser} from '../../redux/user/user.selector'
-import { selectCollectionForPreview } from '../../redux/shop/shop.selectors'
 
 import { auth } from '../../firebase/firebase.utils'
 
@@ -23,7 +22,7 @@ import {
 } from './navbar.styles'
 import SearchInput from '../search-input/search-input.component'
 
-const Navbar = ({ currentUser, hidden, routeName, collections }) => (
+const Navbar = ({ currentUser, hidden }) => (
     <NavbarContainer>
         <div className="upper-nav">
             {
@@ -42,11 +41,10 @@ const Navbar = ({ currentUser, hidden, routeName, collections }) => (
             </LogoContainer>
 
             <OptionsContainer>
-                    <OptionLink to ='/shop'>DISCOVER</OptionLink>
-                {collections.map(collection => collection.routeName !== undefined &&(
-                    <OptionLink to = {`/shop/${collection.routeName}`}>{collection.routeName.toUpperCase()}</OptionLink>
-                ))}
-        
+                <OptionLink to ='/shop'>DISCOVER</OptionLink>
+                <OptionLink to ='/shop/mens'>MENS</OptionLink>
+                <OptionLink to ='/shop/womens'>WOMENS</OptionLink>
+                <OptionLink to ='/shop/kids'>KIDS</OptionLink>
             </OptionsContainer>
             <SearchInput />
         </div>
@@ -57,9 +55,7 @@ const Navbar = ({ currentUser, hidden, routeName, collections }) => (
 // createStructuredSelector will automatically pass our top-level state into our selectors
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
-    hidden: selectCartHidden,
-    collections: selectCollectionForPreview
-
+    hidden: selectCartHidden
 })
 
 // connect is a HOF being passed down from redux

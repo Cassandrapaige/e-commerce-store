@@ -61,19 +61,19 @@ const config = {
         const newDocRef = collectionRef.doc();
         batch.set(newDocRef, obj);
     })
-
     return await batch.commit()
  }
 
- export const convertCollectionsSnapshotToMap = (collections) => {
+ export const convertCollectionsSnapshotToMap = collections => {
     const transformedCollection = collections.docs.map(doc => {
-        const {title, items, routeName} = doc.data();
+        const {title, items, routeName, mainImg} = doc.data();
         return {
             routeName: encodeURI(routeName),
             id: doc.id,
             title,
             items,
-            routeName
+            routeName,
+            mainImg
         }
     })
     return transformedCollection.reduce((accumulator, collection) => {
