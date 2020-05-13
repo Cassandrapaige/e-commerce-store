@@ -19,6 +19,8 @@ import {
 import {setCurrentUser} from './redux/user/user.actions'
 
 import { selectCurrentUser } from './redux/user/user.selector';
+import { checkUserSession } from './redux/user/user.actions';
+
 import { selectCartHidden } from './redux/cart/cart.selectors'
 
 import {selectCollectionForPreview} from './redux/shop/shop.selectors'
@@ -34,27 +36,7 @@ const App = (
   let unsubscribeFromAuth = null;
 
   useEffect(() => {
-    unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if(userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        // calling 'snapshot' allows us to see if the document exists, and receive ID
-        // attaching the .data() method returns a full JSON object with the documents data
-
-        userRef.onSnapshot(snapshot => {
-          setCurrentUser({
-              id: snapshot.id,
-              ...snapshot.data()
-            })
-        })}
-      // user will be set to null
-      setCurrentUser(userAuth);
-
-      // Ability to remove all collections data once added to firestore
-      // Destructure values to save to DB --> no need to save ids as firestore will be generating unique ids for each item
-      addCollectionAndDocuments('collections', collectionsArray.map(({title, routeName, items, mainImg}) => ({ title, routeName, items, mainImg})));
-    })
-    return () => unsubscribeFromAuth();
+    checkUserSession()
   }, [])
 
     return (
@@ -80,8 +62,8 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-})
+  checkUserSession: () => dispatch(checkUserSession())
+});
 
 // connect takes in mapStateToProps and mapDispatchToProps as parameters
 // pass null when you dont need to mapStateToProps

@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
+import { auth } from '../../firebase/firebase.utils'
 
 import {selectCartHidden} from '../../redux/cart/cart.selectors'
 import {selectCurrentUser} from '../../redux/user/user.selector'
 
-import { auth } from '../../firebase/firebase.utils'
+import { signOutStart } from '../../redux/user/user.actions';
 
 import CartIcon from '../cart-icon/cart-icon.components'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component'
@@ -22,12 +23,12 @@ import {
 } from './navbar.styles'
 import SearchInput from '../search-input/search-input.component'
 
-const Navbar = ({ currentUser, hidden }) => (
+const Navbar = ({ currentUser, hidden, signOutStart }) => (
     <NavbarContainer>
         <div className="upper-nav">
             {
             currentUser ? 
-                <OptionLink as='div' onClick = {() => auth.signOut()} > <i class="fas fa-user"></i> My Profile </OptionLink>
+                <OptionLink as='div' onClick = {signOutStart} > <i class="fas fa-user"></i> My Profile </OptionLink>
                 :
                 <OptionLink to = '/login'>Join/Sign In to Nike Member Profile</OptionLink>
             }
@@ -58,5 +59,9 @@ const mapStateToProps = createStructuredSelector({
     hidden: selectCartHidden
 })
 
+const mapDispatchToProps = dispatch => ({
+    signOutStart: () => dispatch(signOutStart())
+});
+
 // connect is a HOF being passed down from redux
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

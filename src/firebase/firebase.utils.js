@@ -15,6 +15,8 @@ const config = {
     measurementId: "G-6FQ6127Q1J"
   };
 
+  firebase.initializeApp(config);
+
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
 
@@ -81,22 +83,22 @@ const config = {
         return accumulator;
     }, {})
  }
-
-  firebase.initializeApp(config);
+ 
+ export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = auth.onAuthStateChanged(userAuth => {
+        unsubscribe();
+        resolve(userAuth);
+      }, reject);
+    });
+  };
 
   export const auth = firebase.auth();
   export const firestore = firebase.firestore();
-
-  // Set up Google Authentication utility
-
-  // Gives us access to GoogleAuthProvider class from authentication library
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  provider.setCustomParameters({
-      // Trigger google pop-up whenever we use Google auth provider
-      prompt: 'select_account'
-  });
   
-  export const signInWithGoogle = () => auth.signInWithPopup(provider);
+  export const googleProvider = new firebase.auth.GoogleAuthProvider();
+  googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+  export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
   export default firebase;

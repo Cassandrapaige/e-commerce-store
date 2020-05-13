@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 
-import {fetchCollectionsStartAsync} from '../../redux/shop/shop.actions'
+import {fetchCollectionsStart} from '../../redux/shop/shop.actions'
 
 import Header from '../../components/header/header.component'
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
 
 import './homepage.styles.scss'
 
-const Homepage = ({fetchCollectionsStartAsync}) => {
+const Homepage = ({fetchCollectionsStart}) => {
 
     useEffect(() => {
-        fetchCollectionsStartAsync()
+        fetchCollectionsStart()
     }, [])
     return (
         <div className="homepage">
@@ -23,7 +23,7 @@ const Homepage = ({fetchCollectionsStartAsync}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
+    fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
 })
 
 export default connect(null, mapDispatchToProps)(Homepage)
