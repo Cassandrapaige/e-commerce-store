@@ -23,7 +23,7 @@ const ShopPage = ({match, isLoaded, fetchCollectionsStart}) => {
 
     useEffect(() => {
         fetchCollectionsStart()
-    }, [])
+    }, [fetchCollectionsStart])
 
     return(
         <div className = 'shop-page'>

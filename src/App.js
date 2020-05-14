@@ -16,20 +16,18 @@ import {
       addCollectionAndDocuments 
     } from './firebase/firebase.utils'
 
-import {setCurrentUser} from './redux/user/user.actions'
-
 import { selectCurrentUser } from './redux/user/user.selector';
 import { checkUserSession } from './redux/user/user.actions';
 
 import { selectCartHidden } from './redux/cart/cart.selectors'
 
-import {selectCollectionForPreview} from './redux/shop/shop.selectors'
+// import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 
 import './App.scss';
 
 const App = (
-      {setCurrentUser, 
-      collectionsArray, 
+      {// collectionsArray, 
+      checkUserSession,
       hidden, 
       currentUser}) =>  {
 
@@ -37,7 +35,7 @@ const App = (
 
   useEffect(() => {
     checkUserSession()
-  }, [])
+  }, [checkUserSession])
 
     return (
       <div>
@@ -57,7 +55,7 @@ const App = (
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  collectionsArray: selectCollectionForPreview,
+  // collectionsArray: selectCollectionForPreview,
   hidden: selectCartHidden
 })
 
