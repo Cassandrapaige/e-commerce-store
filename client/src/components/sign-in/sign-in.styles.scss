@@ -1,0 +1,18 @@
+.sign-in {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        margin: 10px 0;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
+}

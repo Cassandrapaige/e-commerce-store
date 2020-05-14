@@ -1,0 +1,35 @@
+.size-option {
+    padding: 20px 10px;
+    border: 1px solid #E7E7E7;
+    width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+
+    label {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    input[type='radio'] {
+        appearance: none;
+
+        &:checked + label {
+            background: black;
+            color: #fff;
+        }
+    }
+    
+    &:hover {
+        border: 1px solid black;
+    }
+}
