@@ -1,20 +1,43 @@
 .collection-page {
     display: flex;
     flex-direction: column;
+    position: relative;
 
-    .title {
-        font-size: 25px;
-        padding: 0 0 30px 5px;
-        font-weight: 500;
+    &-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
     }
 
-    .items {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+    &-header {
+        position: sticky;
+        top: 110px;
+        background: white;
+        width: 100%;
+        z-index: 1000;
+        padding: 30px 10px;
+        display: flex;
+        justify-content: space-between;
 
-        & .collection-item {
-            margin-bottom: 30px;
+        .title {
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .filter-options {
+            display: flex;
+            align-items: center;
+
+            .filter-btn,
+            .sort-btn {
+                cursor: pointer;
+            }
+
+            .filter-btn {
+                margin-right: 50px;
+                display: flex;
+                align-items: center;
+            }
         }
     }
 }

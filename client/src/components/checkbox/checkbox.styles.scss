@@ -21,7 +21,7 @@
     }
 
     input[type='radio'] {
-        appearance: none;
+        opacity: 0;
 
         &:checked + label {
             background: black;

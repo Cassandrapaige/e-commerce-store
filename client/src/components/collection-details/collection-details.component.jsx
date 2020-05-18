@@ -11,14 +11,21 @@ import ItemHeader from '../item-header/item-header.component'
 
 import './collection-details.styles.scss'
 
-const CollectionDetails = ({items, addItem, hidden}) => {  
-    const [isChecked, setIsChecked] = useState(false)
+const CollectionDetails = ({items, addItem, hidden}) => {      
 
-    const handleChange = event => {
-        setIsChecked(true)
-        items.map(item => item.size = event.target.value)
+    const handleChange = (item, event) => {
+        let value = event.target.value
+        item.size = value
     }
-    
+
+    const handleClick = (event, item) => {
+        if(item.size){
+            addItem(item)
+            hidden()
+        }
+        return false
+    }
+
     return (
         <div className = 'collection-details'>
             {items.map(item => (
@@ -35,17 +42,17 @@ const CollectionDetails = ({items, addItem, hidden}) => {
                 <div className = 'details'>
                     <ItemHeader item = {item} />
                     <img src={item.imageUrl} alt={item.name} id = 'image-show-md'/>
-                    <SizeChart handleChange = {handleChange}>
-                        <CustomButton type= 'submit' 
-                            onClick = {() => {
-                            hidden()
-                            addItem(item)}}>
-                            Add to Bag
-                        </CustomButton>
-                        <CustomButton inverted>
-                            Favourite <i class="far fa-heart"></i>
-                        </CustomButton>
-                    </SizeChart>
+                    <form onSubmit = {event => event.preventDefault()}>
+                        <SizeChart handleChange = {(e) => handleChange(item, e)}>
+                            <CustomButton type= 'submit' 
+                                onClick = {event => {handleClick(event, item)}}>
+                                Add to Bag
+                            </CustomButton>
+                            <CustomButton inverted>
+                                Favourite <i class="far fa-heart"></i>
+                            </CustomButton>
+                        </SizeChart>
+                    </form>
                     <p>{item.description}</p>
                     <ul><li>Colour Shown: {item.colour}</li></ul>
                 </div>

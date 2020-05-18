@@ -48,7 +48,7 @@ const Navbar = ({ currentUser, hidden, signOutStart }) => (
             </OptionsContainer>
             <SearchInput />
         </div>
-        { !hidden && <CartDropdown /> }
+        <CartDropdown hidden = {hidden}/> 
     </NavbarContainer>
 )
 

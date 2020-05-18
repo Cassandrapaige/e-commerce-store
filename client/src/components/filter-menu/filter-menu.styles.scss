@@ -1,0 +1,21 @@
+.filter-menu {
+    min-width: 300px;
+    background: white;
+    padding-right: 30px;
+    grid-row: 1/-1;
+    grid-column: 1/2;
+    
+    ul {
+        list-style-type: none;
+        padding-left: 10px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(18, 18, 18, .2);
+
+        li {
+            padding: 8px 0;
+            font-weight: 500;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}

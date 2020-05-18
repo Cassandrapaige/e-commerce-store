@@ -10,7 +10,7 @@ import './collections-overview.styles.scss'
 
 const CollectionsOverview = ({ collections }) => (
     <div className="collections-overview">
-        {collections.map(({ routeName, id, ...rest}) => routeName !== undefined &&(
+        {collections.map(({ id, ...rest}) => (
             <CollectionPreview key = {id} {...rest} />
         ))}
     </div>

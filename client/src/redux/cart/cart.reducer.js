@@ -1,9 +1,14 @@
+import React from 'react';
+
 import CartActionTypes from './cart.types'
-import { addItemToCart, removeItemFromCart, clearItemFromCart, addSizeToCartItem} from './cart.utils'
+import { addItemToCart, 
+        removeItemFromCart, 
+        clearItemFromCart} from './cart.utils'
 
 const INITIAL_STATE = {
     hidden: true,
-    cartItems: []
+    cartItems: [],
+    successMessage: ''
 }
 
 const cartReducer = (currentState = INITIAL_STATE, action) => {
@@ -17,6 +22,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             return {
                 ...currentState,
                 cartItems: addItemToCart(currentState.cartItems, action.payload),
+                successMessage: <span><i class="fas fa-check"></i>Added to cart</span>
             }
         case CartActionTypes.REMOVE_ITEM:
             return {
@@ -32,7 +38,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             return {
               ...currentState,
             cartItems: []
-            };
+            }
         default:
             return currentState;
     }

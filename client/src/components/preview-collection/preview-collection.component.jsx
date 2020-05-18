@@ -6,7 +6,8 @@ import './preview-collection.styles.scss'
 import CollectionItem from '../collection-item/collection-item.component'
 import CustomButton from '../custom-button/cutom-button.component'
 
-const CollectionPreview = ({title, items, mainImg, routeName, history, match}) => (
+const CollectionPreview = ({items, routeName, mainImg, title, history}) => {
+    return(
     <div className="collection-preview">
         <div className="preview">
             {items.filter((item, idx) => idx < 8).map(item => (
@@ -14,13 +15,13 @@ const CollectionPreview = ({title, items, mainImg, routeName, history, match}) =
                 ))
             }
             <div className="see_more">
-                <img src={mainImg} alt=""/>
+                <img src={mainImg} alt={title}/>
                 <CustomButton onClick = {() => {history.push(`/shop/${routeName}`)}}>
                     Shop {routeName}
                 </CustomButton> 
             </div>
         </div>
     </div>
-)
+)}
 
 export default withRouter(CollectionPreview)

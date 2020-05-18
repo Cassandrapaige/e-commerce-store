@@ -16,10 +16,10 @@ import {
       addCollectionAndDocuments 
     } from './firebase/firebase.utils'
 
-import { selectCurrentUser } from './redux/user/user.selector';
-import { checkUserSession } from './redux/user/user.actions';
+import {checkUserSession } from './redux/user/user.actions';
 
 import { selectCartHidden } from './redux/cart/cart.selectors'
+import { selectCurrentUser } from './redux/user/user.selector';
 
 // import {selectCollectionForPreview} from './redux/shop/shop.selectors'
 
@@ -29,6 +29,7 @@ const App = (
       {// collectionsArray, 
       checkUserSession,
       hidden, 
+      toggleCartHidden,
       currentUser}) =>  {
 
   let unsubscribeFromAuth = null;
@@ -48,7 +49,6 @@ const App = (
                 (<Redirect to = '/' />) : 
                 (<SignInAndSignUpPage />)} />
           </Switch>
-          {!hidden && <div className="screen-overlay"></div>}
       </div>
     );
   }
@@ -60,7 +60,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
+  checkUserSession: () => dispatch(checkUserSession()),
 });
 
 // connect takes in mapStateToProps and mapDispatchToProps as parameters

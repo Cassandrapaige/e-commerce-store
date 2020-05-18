@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import './checkbox.styles.scss'
 
-const Checkbox = ({type, isChecked, handleChange}) => {
+const Checkbox = ({type, handleChange}) => {
     return (
         <div className = 'size-option'>
             <input 
@@ -10,7 +10,6 @@ const Checkbox = ({type, isChecked, handleChange}) => {
                 name="size" 
                 id= {type} 
                 value = {type}
-                checked = {isChecked} 
                 onChange = {handleChange}
                 required
             />

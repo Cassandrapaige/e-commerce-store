@@ -11,24 +11,30 @@ export const selectCartHidden = createSelector(
     [selectCart],
     cart => cart.hidden  
 )
-
-export const selectCartItemsCount = createSelector(
-    [selectCartItems],
-    cartItems => 
-    cartItems.reduce(
-        (accumlatedQuantity, cartItem) => 
-        accumlatedQuantity + cartItem.quantity, 0
-    )
+ 
+export const selectSuccessMessage = createSelector(
+  [selectCart],
+  cart => cart.successMessage 
 )
 
-export const selectCartSubtotal = createSelector(
+  export const selectCartItemsCount = createSelector(
     [selectCartItems],
-    cartItems => 
-    cartItems.reduce(
-        (accumlatedQuantity, cartItem) => 
-        accumlatedQuantity + cartItem.quantity * cartItem.price, 0
-    )
-)
+    cartItems =>
+      cartItems.reduce(
+        (count, cartItem) => 
+        count + cartItem.quantity
+      , 0)
+  );
+
+  export const selectCartSubtotal = createSelector(
+    [selectCartItems],
+    cartItems =>
+      cartItems.reduce(
+        (count, cartItem) =>
+          count + cartItem.quantity * cartItem.price,
+        0
+      )
+  );
 
 export const selectCartTaxes = createSelector(
     [selectCartSubtotal],

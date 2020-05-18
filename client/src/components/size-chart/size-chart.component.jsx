@@ -15,11 +15,11 @@ const SizeChart = ({children, ...props}) => {
       }
       
     return (
-        <form className = 'size-chart'>
+        <div className = 'size-chart'>
             <h3>Select Size</h3>
             {links}
             {children}
-        </form>
+        </div>
     )
 }
 

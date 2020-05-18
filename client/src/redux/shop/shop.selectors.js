@@ -25,6 +25,18 @@ export const getItemDetails = itemId => createSelector(
         .filter(item => item.id == itemId))
 )
 
+export const selectCollectionByFilter = value => createSelector(
+    [selectCollectionForPreview],
+    collections => collections.filter(item => item.tags.includes(value))
+)
+
+export const getCollectionItemTags = createSelector(
+    [selectCollectionForPreview],
+    collections => {
+        collections.map(el => el.tags).flat(1)
+    }
+)
+
 export const selectIsCollectionFetching = createSelector(
     [selectShop],
     shop => shop.isFetching
