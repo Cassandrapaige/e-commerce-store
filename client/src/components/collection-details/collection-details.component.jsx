@@ -13,15 +13,20 @@ import './collection-details.styles.scss'
 
 const CollectionDetails = ({items, addItem, hidden}) => {      
 
-    const handleChange = (item, event) => {
+    const [message, setMessage] = useState('');
+
+    const getItemSize = (item, event) => {
         let value = event.target.value
         item.size = value
+        setMessage('')
     }
 
-    const handleClick = (event, item) => {
+    const addItemToCart = item => {
         if(item.size){
             addItem(item)
             hidden()
+        } else {
+            setMessage('Please select a size.')
         }
         return false
     }
@@ -43,15 +48,18 @@ const CollectionDetails = ({items, addItem, hidden}) => {
                     <ItemHeader item = {item} />
                     <img src={item.imageUrl} alt={item.name} id = 'image-show-md'/>
                     <form onSubmit = {event => event.preventDefault()}>
-                        <SizeChart handleChange = {(e) => handleChange(item, e)}>
-                            <CustomButton type= 'submit' 
-                                onClick = {event => {handleClick(event, item)}}>
-                                Add to Bag
-                            </CustomButton>
+                        <SizeChart 
+                            message = {message}
+                            handleChange = {(e) => getItemSize(item, e)} />
+                            <div className="btn-container">
+                                <CustomButton type= 'submit' 
+                                    onClick = {() => addItemToCart(item)}>
+                                    Add to Bag
+                                </CustomButton>
+                            </div>
                             <CustomButton inverted>
                                 Favourite <i class="far fa-heart"></i>
                             </CustomButton>
-                        </SizeChart>
                     </form>
                     <p>{item.description}</p>
                     <ul><li>Colour Shown: {item.colour}</li></ul>

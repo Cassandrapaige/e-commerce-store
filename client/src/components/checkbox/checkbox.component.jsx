@@ -1,20 +1,22 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-import './checkbox.styles.scss'
+import {CustomCheckbox, FormGroup} from './checkbox.styles'
 
-const Checkbox = ({type, handleChange}) => {
+const Checkbox = ({label, onChange, ...rest}) => {
     return (
-        <div className = 'size-option'>
-            <input 
-                type="radio" 
-                name="size" 
-                id= {type} 
-                value = {type}
-                onChange = {handleChange}
-                required
-            />
-            <label htmlFor = {type}>US {type}</label>
-        </div>
+    <FormGroup>
+        <CustomCheckbox {...rest}/>
+        <input 
+            type="checkbox" 
+            id={label} 
+            name={label} 
+            value={label} 
+            onChange = {onChange}
+        />
+        <label htmlFor={label}>
+            {label}            
+        </label>
+    </FormGroup> 
     )
 }
 

@@ -47,7 +47,9 @@ export const selectShippingTotal = createSelector(
 )
 
 export const selectCartTotal = createSelector(
-    [selectCartSubtotal, selectCartTaxes, selectShippingTotal],
+    selectCartSubtotal, 
+    selectCartTaxes, 
+    selectShippingTotal,
     (cartItems, taxes, shipping) => 
         (Number(cartItems) + Number(taxes) + Number(shipping)).toFixed(2)
 )

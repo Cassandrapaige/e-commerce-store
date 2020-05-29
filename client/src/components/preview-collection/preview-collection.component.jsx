@@ -4,23 +4,15 @@ import {withRouter} from 'react-router-dom'
 import './preview-collection.styles.scss'
 
 import CollectionItem from '../collection-item/collection-item.component'
-import CustomButton from '../custom-button/cutom-button.component'
 
-const CollectionPreview = ({items, routeName, mainImg, title, history}) => {
+const CollectionPreview = ({items, num = items.length, children}) => {
     return(
     <div className="collection-preview">
-        <div className="preview">
-            {items.filter((item, idx) => idx < 8).map(item => (
-                <CollectionItem key = {item.id} item={item}/>
-                ))
-            }
-            <div className="see_more">
-                <img src={mainImg} alt={title}/>
-                <CustomButton onClick = {() => {history.push(`/shop/${routeName}`)}}>
-                    Shop {routeName}
-                </CustomButton> 
-            </div>
-        </div>
+        {items.filter((item, idx) => idx < num).map(item => (
+            <CollectionItem key = {item.id} item={item}/>
+            ))
+        }
+        {children}
     </div>
 )}
 

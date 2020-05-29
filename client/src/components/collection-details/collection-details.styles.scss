@@ -2,12 +2,13 @@
     display: grid;
     grid-template-columns: 70% 30%;
     gap: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
 
     .details {
         display: flex;
         flex-direction: column;
-        padding: 0 20px;
+        transition: all .5s ease;
+        padding: 10px;
 
         &-upper {
             display: flex;
@@ -22,18 +23,21 @@
         }
 
         #image-show-md {
-            height: 450px;
+            height: 350px;
             object-fit: cover;
             display: none;
             margin-top: 10px;
             object-position: center;
         }
 
-        button {
 
-            &:nth-of-type(1) {
-                margin-top: 10px;
-            }
+        .btn-container {
+            background: white;
+            padding: 10px 0;
+        }
+
+        button {
+            width: 100%;
             
             .far {
                 padding-left: 10px;
@@ -41,7 +45,8 @@
         }
 
         h2 {
-            padding: 10px 0;
+            padding: 10px 0 15px 0;
+            font-weight: 900;
         }
 
         p {
@@ -80,11 +85,9 @@
                 display: block;
             }
 
-            button {
-                &:nth-of-type(1) {
-                    position: sticky;
-                    bottom: 20px;
-                }
+            .btn-container{
+                position: sticky;
+                bottom: 0px;
             }
         }
 

@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react'
-import {connect} from 'react-redux'
-
 import {fetchCollectionsStart} from '../../redux/shop/shop.actions'
+
+import {createStructuredSelector} from 'reselect'
+import {connect} from 'react-redux'
 
 import Header from '../../components/header/header.component'
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
@@ -10,14 +11,15 @@ import './homepage.styles.scss'
 
 const Homepage = ({fetchCollectionsStart}) => {
 
-    useEffect(() => {
-        fetchCollectionsStart()
-    }, [])
+useEffect(() => {
+    fetchCollectionsStart()
+}, [fetchCollectionsStart])
+
     return (
         <div className="homepage">
             <Header />
             <h3>Shop our collections</h3>
-            <CollectionsOverview />
+            <CollectionsOverview isPreview />
         </div>
     )
 }

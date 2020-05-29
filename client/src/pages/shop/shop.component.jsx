@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, lazy, Suspense} from 'react'
 import {Route} from 'react-router-dom'
 import {createStructuredSelector} from 'reselect'
 import {connect} from 'react-redux'
@@ -6,16 +6,15 @@ import {connect} from 'react-redux'
 import {fetchCollectionsStart} from '../../redux/shop/shop.actions'
 import {selectIsCollectionFetching, selectIsCollectionLoaded} from '../../redux/shop/shop.selectors'
 
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
-import CollectionPage from '../collection/collection.compopnent'
-import CollectionDetailsPage from '../collection-details/collection-details.component'
-import WithSpinner from '../../components/with-spinner/with-spinner.component'
+import Spinner from '../../components/spinner/spinner.component'
 
 import './shop.styles.scss'
 
-const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview)
-const CollectionPageWithSpinner = WithSpinner(CollectionPage)
-const CollectionDetailsWithSpinner = WithSpinner(CollectionDetailsPage)
+const CollectionOverviewPage = lazy(() => import('../collection-overview-page/collection-overview-page.component'));
+const CollectionPageContainer = lazy(() => import('../collection/collection.container'));
+const CollectionDetailsPage = lazy(() => import('../collection-details/collection-details.component'));
+const SearchResultsPage = lazy(() => import('../search-results/search-results.component'));
+const FilteredResultsPage = lazy(() => import('../filtered-results/filtered-results.component'));
 
 const ShopPage = ({match, isLoaded, isFetching, fetchCollectionsStart}) => {
 
@@ -25,21 +24,28 @@ const ShopPage = ({match, isLoaded, isFetching, fetchCollectionsStart}) => {
 
     return(
         <div className = 'shop-page'>
+            <Suspense fallback = {<Spinner />}>
             <Route 
                 exact path ={`${match.path}`} 
-                render = {(props) => 
-                <CollectionsOverviewWithSpinner isLoading = {isFetching} {...props} />} 
+                component = {CollectionOverviewPage}
             />
             <Route 
                 exact path = {`${match.path}/:collectionId`} 
-                render = {(props) => 
-                <CollectionPageWithSpinner isLoading = {!isLoaded} {...props} />} 
+                component = {CollectionPageContainer}
+            />
+            <Route 
+                exact path ={`${match.path}/query/:query`} 
+                component = {CollectionPageContainer}
+            />
+            <Route 
+                exact path ={`${match.path}/filter/:filter`} 
+                component = {FilteredResultsPage}
             />
             <Route 
                 exact path = {`${match.path}/details/:itemId`} 
-                render = {(props) => 
-                <CollectionDetailsWithSpinner isLoading = {isFetching} {...props} />} 
+                component = {CollectionDetailsPage}
             />
+            </Suspense>
         </div>
     )
 }

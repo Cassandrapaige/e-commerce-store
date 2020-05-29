@@ -11,11 +11,11 @@ import './checkout-item.styles.scss'
 import ItemHeader from '../item-header/item-header.component'
 
 const CheckoutItem = ({ history, cartItem, clearItem, addItem, removeItem }) => {
-const {imageUrl, name, type, quantity, price, id, size, colour} = cartItem;
+const {imageUrl, name, type, quantity, price, id, cartId, size, colour} = cartItem;
 return (
     <div className="checkout-item">
         <div className="image-container">
-            <img src={imageUrl} alt={name} onClick = {() => {history.push(`/shop/details/${id}`)}}/>
+            <img src={imageUrl} alt={name} onClick = {() => {history.push(`/shop/details/${cartId}`)}}/>
         </div>
 
     <div className="checkout-info">

@@ -1,24 +1,26 @@
 import React from 'react'
 
-import Checkbox from '../checkbox/checkbox.component'
+import RadioButton from '../radio-button/radio-button.component'
 
 import './size-chart.styles.scss'
 
-const SizeChart = ({children, ...props}) => {
+const SizeChart = ({message, ...props}) => {
     let links = []
 
     for(let i = 10; i < 25; i++) {
-        let x = i / 2;
+        let size = i / 2;
         links.push(
-            <Checkbox type = {x} {...props}/>
+            <RadioButton type = {size} {...props}/>
         )
       }
       
     return (
         <div className = 'size-chart'>
-            <h3>Select Size</h3>
-            {links}
-            {children}
+            <h3 style = {{color: `${message ? '#FA5400' : 'black'}`}}>Select Size</h3>
+            <div className = {`size-chart-container ${message && 'warning-border'}`}>
+                {links}
+            </div>
+            <span class = 'warning-message'>{message}</span>
         </div>
     )
 }

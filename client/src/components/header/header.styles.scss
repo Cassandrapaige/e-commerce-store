@@ -8,13 +8,14 @@ header {
     background-size: cover;
     width: 100%;
     margin: auto;
+    z-index: 1;
 
     .overlay {
         display: flex;
         height: 100%;
         width: 100%;
         justify-content: flex-end;
-        align-items: end;
+        align-items: start;
         flex-direction: column;
         padding: 50px;
         background: rgba(0, 0, 0, 0.1);

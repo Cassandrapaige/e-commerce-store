@@ -1,16 +1,27 @@
-import React, {useState} from 'react'
-import { connect } from 'react-redux'
+import React, {useState, useEffect} from 'react'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
 import {withRouter} from 'react-router-dom'
+
+import {selectFilterMenu} from '../../redux/shop/shop.selectors'
 
 import CustomButton from '../custom-button/cutom-button.component'
 
-import './collection-item.styles.scss'
-import ItemHeader from '../item-header/item-header.component'
+import {ImageContainer, 
+        ImageGridContainer, 
+        ImagePreviewContainer, 
+        Image,
+        CollectionItemFooter,
+        CollectionItemContainer} from './collection-item.styles'
 
-const CollectionItem = ({ item, history, match}) => {
+import ItemHeader from '../item-header/item-header.component'
+import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
+
+const CollectionItem = ({ item, history, match, isFilterMenuHidden}) => {
     const { name, price, type, imageUrl, images, id} = item
     const [showImages, setShowImages] = useState(false)
     const [image, setImage] = useState(imageUrl)
+    const [isLoading, setIsLoading] = useState(true)
 
     const handleClick = type => setImage(type)
     const handleMouseEnter = () => setShowImages(true)
@@ -19,35 +30,50 @@ const CollectionItem = ({ item, history, match}) => {
         setImage(imageUrl)   
     }    
     
-    return (
-    <div className="collection-item" 
-            onMouseEnter = {handleMouseEnter} 
-            onMouseLeave = {handleMouseLeave}
-            onClick = {() => {history.push(`/shop/details/${id}`)}}>
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1500)
+    }, [])
 
-        <img src = {image} alt = {name} className = 'image'/>
-        <div className="collection-footer">
-            <ItemHeader item = {item} />
-            
-            <div className="images">       
-            {showImages ? 
-            <div class = 'images-preview'>
-                <img src = {imageUrl} alt = {name} 
+    return (
+    <CollectionItemContainer
+        onMouseEnter = {handleMouseEnter} 
+        onMouseLeave = {handleMouseLeave}
+        onClick = {() => {history.push(`/shop/details/${id}`)}}>
+
+        {isLoading ?
+        <ImageContainer as = 'div' withMargin = {isFilterMenuHidden}>
+            <SkeletonScreen />
+        </ImageContainer>
+        :
+        <ImageContainer src = {image} alt = {name} withMargin = {isFilterMenuHidden}/>
+        }
+        <CollectionItemFooter>
+        <ItemHeader item = {item} />
+        <ImagePreviewContainer>   
+            {showImages && !isLoading ? 
+            <ImageGridContainer>
+                <Image src = {imageUrl} alt = {name} 
                     onMouseEnter = {() => handleClick(imageUrl)}/>
 
-                    {images
-                        .filter((item, idx) => idx < 3)
+                    {images.filter((item, idx) => idx < 3)
                         .map(image => (
 
-                    <img src={image} alt={name} 
+                    <Image src={image} alt={name} 
                         onMouseEnter = {() => handleClick(image)}/>
                     ))}
                 <div className="plus_images">+{images.length - 3}</div>
-            </div>
+            </ImageGridContainer>
+
             : <span>{images.length + 1} Images </span>}        
-        </div>
-    </div>
-</div>
+        </ImagePreviewContainer>
+    </CollectionItemFooter>
+</CollectionItemContainer>
 )}
 
-export default withRouter(CollectionItem)
+const mapStateToProps = createStructuredSelector({
+    isFilterMenuHidden: selectFilterMenu
+})
+
+export default withRouter(connect(mapStateToProps)(CollectionItem))

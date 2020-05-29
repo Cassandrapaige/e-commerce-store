@@ -1,24 +1,57 @@
-import React from 'react'
-import {animated, useSpring, useTransition, config} from 'react-spring'
+import React, {useState} from 'react'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
 
-import './filter-menu.styles.scss'
+import {selectCollectionTags, selectFilterMenu} from '../../redux/shop/shop.selectors'
 
-const FilterMenu = ({isVisible, handleClick, items}) => {
-    const props = useSpring({
-        opacity: isVisible ? 0 : 1
-    })
+import Checkbox from '../checkbox/checkbox.component'
+import FilterContainer from '../filter-container/filter-container.component'
+
+import {FilterMenuContainer, 
+        TagsListContainer,
+        TagItem
+    } from './filter-menu.styles'
+
+import {PRICE_FILTER_DATA,
+        GENDER_FILTER_DATA
+    } from '../../constants'
+
+
+const FilterMenu = ({tags, hidden, fetchFilteredCollection}) => {
+
+    const TAGS_FILTER_DATA = [...new Set(tags[0])]
 
     return (
-        <animated.div style= {props} className = 'filter-menu'>
-           <ul className="sort_by_tags">
-               {
-                   items.map(item => (
-                       <li onClick = {handleClick}>{item}</li>
-                   ))
-               }
-           </ul>
-        </animated.div>
+        <FilterMenuContainer isVisible = {hidden}>
+           <TagsListContainer>
+            {
+                TAGS_FILTER_DATA.map((item, index) => (
+                   <TagItem key = {index} onClick = {fetchFilteredCollection}>{item}</TagItem>
+                ))
+            }
+           </TagsListContainer>
+            <FilterContainer title = 'Gender'>
+            {
+                GENDER_FILTER_DATA.map(({id, ...props })=> (
+                    <Checkbox {...props} key = {id}/>
+                ))
+            }
+            </FilterContainer>
+
+            <FilterContainer title = 'Shop By Price'>
+            {
+                PRICE_FILTER_DATA.map(({id, ...props })=> (
+                    <Checkbox {...props} key={id}/>
+                ))
+            }
+            </FilterContainer>
+        </FilterMenuContainer>
     )
 }
 
-export default FilterMenu
+const mapStateToProps = createStructuredSelector({
+    tags: selectCollectionTags,
+    hidden: selectFilterMenu,
+})
+
+export default connect(mapStateToProps)(FilterMenu)

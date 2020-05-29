@@ -7,7 +7,6 @@
     background: white;
     top: 116px;
     right: 25px;
-    z-index: 500;
 
     &-header {
         display: flex;
@@ -75,13 +74,3 @@
         }
     }
 }
-
-
-.screen-overlay {
-    position: fixed;
-    background: rgba(19, 19, 19, .3);
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 115px;
-  }

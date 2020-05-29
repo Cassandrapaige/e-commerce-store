@@ -10,7 +10,7 @@ import './cart-item.styles.scss'
 
 const CartItem = ({item, history, dispatch}) => {
     
-    const {imageUrl, price, name, type, id, size} = item;
+    const {imageUrl, name, id, size} = item;
     return (
     <div className="cart-item" onClick = {() => {
         dispatch(toggleCartHidden())

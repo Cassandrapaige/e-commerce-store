@@ -12,9 +12,10 @@ import {selectCartItems, selectCartItemsCount, selectSuccessMessage} from '../..
 import {toggleCartHidden} from '../../redux/cart/cart.actions'
 
 import './cart-dropdown.styles.scss'
+import BackgroundOverlay from '../background-overlay/background-overlay.component'
 
 const CartDropdown = ({ cartItems, history, toggleCartHidden, dispatch, hidden, successMessage, itemCount }) => {
-
+    
     const transitions = useTransition(!hidden, null, {
         config: config.default,
         from: {opacity: 0},
@@ -36,7 +37,7 @@ return transitions.map(({ item, props}) => item && (
             {
                 cartItems.length ? (
                 <CartItem 
-                    key = {cartItems[cartItems.length -1].id} 
+                    key = {cartItems[cartItems.length -1].cartId} 
                     item ={cartItems[cartItems.length -1]} />
             ) : (
                 <span className="empty-message">Your cart is empty</span>
@@ -58,7 +59,7 @@ return transitions.map(({ item, props}) => item && (
             </CustomButton>
         </div>
     </div>
-    <div className="screen-overlay" onClick = {toggleCartHidden}></div>
+    <BackgroundOverlay handleClick = {toggleCartHidden()} />
     </animated.div>
 ))}
 

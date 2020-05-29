@@ -6,11 +6,11 @@
     flex-direction: column;
     line-height: 25px;
     padding-bottom: 5px;
-    
+
     &-upper {
         display: flex;
         justify-content: space-between;
-        align-items: start;
+        align-items: flex-start;
 
         & .name {
             line-height: 18px;
@@ -20,4 +20,12 @@
         .type {
             color: #757575;
         }
+}
+
+@media(max-width: 500px) {
+    .item-header {
+        &-upper {
+            flex-direction: column;
+        }
+    }
 }
