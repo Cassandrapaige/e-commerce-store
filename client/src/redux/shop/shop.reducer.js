@@ -2,7 +2,7 @@ import SHOP_DATA from './shop.data'
 
 import ShopActionTypes from './shop.types'
 
-import {getCollectionByFilter} from './shop.utils'
+import {fetchCollectionByPrice} from './shop.utils'
 
 const INITIAL_STATE = {
     collections: null,
@@ -10,7 +10,6 @@ const INITIAL_STATE = {
     errorMessage: undefined,
     isFilterMenuHidden: false,
     isDropdownHidden: true,
-    filter: undefined
 }
 
 const shopReducer = (currentState = INITIAL_STATE, action) => {
@@ -32,15 +31,15 @@ const shopReducer = (currentState = INITIAL_STATE, action) => {
                 isFetching: false,
                 errorMessage: action.payload
             }
-        case ShopActionTypes.FETCH_FILTERED_COLLECTION:
+        case ShopActionTypes.FETCH_COLLECTION_DESCENDING:
             return {
                 ...currentState,
-                collections: action.payload
+                collections: fetchCollectionByPrice('descending', currentState.collections)
             }
-        case ShopActionTypes.FILTER_COLLECTION_BY_PRICE:
+        case ShopActionTypes.FETCH_COLLECTION_ASCENDING:
             return {
                 ...currentState,
-                collections: () => console.log(currentState.collections.items.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)))
+                collections: fetchCollectionByPrice('ascending', currentState.collections)
             }
         case ShopActionTypes.TOGGLE_FILTER_MENU:
             return {

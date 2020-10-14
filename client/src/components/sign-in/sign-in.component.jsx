@@ -12,7 +12,8 @@ import {SignInContainer,
         UserConditionsContainer,
         UserConditionsHeader,
         Text,
-        ActionLink} from './sign-in.styles'
+        ActionLink,
+        SignInForm} from './sign-in.styles'
 
 import {emailSignInStart,
         googleSignInStart} from '../../redux/user/user.actions'
@@ -23,6 +24,7 @@ import Checkbox from '../checkbox/checkbox.component'
 import BackgroundOverlay from '../background-overlay/background-overlay.component'
 
 const SignIn = ({emailSignInStart, googleSignInStart, setHidden, hidden, invertedCheckbox}) => {
+    const [isUser, setIsUser] = useState(true)
     const [userCredentials, setCredentials] = useState({
             email: '', 
             password: ''
@@ -32,7 +34,9 @@ const SignIn = ({emailSignInStart, googleSignInStart, setHidden, hidden, inverte
 
     const handleSubmit = async event => {
         event.preventDefault();
-        emailSignInStart(email, password)
+        emailSignInStart(email, password);
+        setHidden(false)
+        setIsUser(true)
     }
 
     const handleChange = event => {
@@ -46,19 +50,28 @@ const SignIn = ({emailSignInStart, googleSignInStart, setHidden, hidden, inverte
 
     const transitions = useTransition(hidden, null, {
         config: config.default,
+        duration: 500,
         from: {opacity: 0},
-        enter: {opacity: 1},
+        enter: {
+            opacity: 1,
+            zIndex: 50000,
+            position: 'fixed'
+        },
         leave: {opacity: 0}
     })
 
     return transitions.map(({ item, props}) => item && (
         <animated.div style = {props}>
-            <div className="sign-in-container">
-            <SignInContainer hidden = {hidden}>
+            <SignInContainer>
+            <SignInForm hidden = {hidden}>
+                
                 <SignInHeader>
                     <Logo small/>
                     <h2>Your account for everything Nike</h2>
                 </SignInHeader>
+
+        {
+            isUser ? 
 
                 <form onSubmit = {handleSubmit}>
                     <FormInput 
@@ -88,14 +101,63 @@ const SignIn = ({emailSignInStart, googleSignInStart, setHidden, hidden, inverte
                     <CustomButton type= 'submit' signInButtonStyles>
                         Sign In
                     </CustomButton>
+
+                    <CustomButton
+                        type='button'
+                        onClick={googleSignInStart}
+                        isGoogleSignIn
+                    >
+                        Sign in with Google
+                    </CustomButton>
         
                     <div className="link-to-sign-up">
-                        <Text centered>Not a member? <ActionLink cta>Join Us.</ActionLink></Text>
+                        <Text centered>Not a member? <ActionLink cta onClick = {() => setIsUser(false)}>Join Us.</ActionLink></Text>
                     </div>
                 </form>
+            :
+            <div>
+            <h2 className="title">I do not have an account</h2>
+                <span>Sign up with your email and password</span>
+                <form className="sign-up-form" onSubmit = {handleSubmit}>
+                    <FormInput
+                        type = 'text'
+                        name = 'displayName'
+                        value= { email }
+                        onChange = { handleChange }
+                        label= 'Display Name'
+                        required
+                    />
+                    <FormInput
+                        type = 'email'
+                        name = 'email'
+                        value= { email }
+                        onChange = { handleChange }
+                        label= 'Email'
+                        required
+                    />
+                    <FormInput
+                        type = 'password'
+                        name = 'password'
+                        value= { password }
+                        onChange = { handleChange }
+                        label= 'Password'
+                        required
+                    />
+                    <FormInput
+                        type = 'password'
+                        name = 'confirmPassword'
+                        value= { password }
+                        onChange = { handleChange }
+                        label= 'Confirm Password'
+                        required
+                    />
+                    <CustomButton type = 'submit'>Sign Up</CustomButton>
+                </form>
+                </div>
+        }
+            </SignInForm>
             </SignInContainer>
-            </div>
-            <BackgroundOverlay fixedTop handleClick = {() => setHidden(false)}/>
+            <BackgroundOverlay fixedTop handleClick = {() => {setHidden(false); setIsUser(true)}}/>
         </animated.div>
         )
     )}
@@ -106,7 +168,4 @@ const mapDispatchToProps = dispatch => ({
       dispatch(emailSignInStart({ email, password }))
   });
 
-export default connect(
-    null, 
-    mapDispatchToProps
-    )(SignIn)
+export default connect(null, mapDispatchToProps)(SignIn)

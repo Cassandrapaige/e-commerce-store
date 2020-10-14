@@ -3,6 +3,8 @@
     grid-template-columns: 70% 30%;
     gap: 20px;
     padding-top: 10px;
+    opacity: 0;
+    animation: .5s fadeIn ease forwards .5s;
 
     .details {
         display: flex;
@@ -29,7 +31,6 @@
             margin-top: 10px;
             object-position: center;
         }
-
 
         .btn-container {
             background: white;

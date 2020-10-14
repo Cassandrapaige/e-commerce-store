@@ -15,7 +15,7 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
         (Tag at index 0 is always equal to 'Lifestyle')
     */
 
-    const value = collections
+    const matchedTag = collections
         .filter(collection => collection.length > 0)
         .map(collection => collection
         .map(item => item.tags[1]))
@@ -33,6 +33,8 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
         return similar.length >= collectionLength ?
             similar : [...similar, ...padItems]
     }
+
+    console.log(collections)
 
     /*
         Remove any duplicates that might be present in the array,
@@ -53,7 +55,7 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
                <CollectionDetails items = {collection}/>
             ))
             }
-            <ScrollingContainer collections = {getCollection(value)} />
+            <ScrollingContainer collections = {getCollection(matchedTag)} />
         </div>
     )
 }

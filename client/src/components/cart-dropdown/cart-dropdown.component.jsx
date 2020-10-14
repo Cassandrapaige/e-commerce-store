@@ -28,7 +28,9 @@ return transitions.map(({ item, props}) => item && (
     <div className="cart-dropdown">
         <div className="cart-dropdown-header">
             <div className="success-message">
-                {successMessage}
+                {successMessage &&
+                    <span><i class="fas fa-check"></i>Added to cart</span>
+                }
             </div>
             <div className="close-dropdown-btn" onClick = {toggleCartHidden}></div>
         </div>
@@ -59,7 +61,7 @@ return transitions.map(({ item, props}) => item && (
             </CustomButton>
         </div>
     </div>
-    <BackgroundOverlay handleClick = {toggleCartHidden()} />
+    <BackgroundOverlay handleClick = {toggleCartHidden} />
     </animated.div>
 ))}
 

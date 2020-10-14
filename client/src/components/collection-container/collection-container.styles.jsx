@@ -3,6 +3,9 @@ import styled, {css} from 'styled-components'
 export const CollectionPageContainer = styled.div`
 display: grid;
 grid-template-columns: 300px 1fr;
+opacity: 0;
+min-height: 100vh;
+animation: .5s fadeIn ease forwards .5s;
 
 @media (max-width: 1000px) {   
     grid-template-columns: repeat(2, 1fr);
@@ -19,7 +22,6 @@ export const CollectionItemContainer = styled.div`
     transition: all .5s ease;
 
     @media(max-width: 1100px) {
-        position: absolute;
         margin-left: 0;
     }
 `

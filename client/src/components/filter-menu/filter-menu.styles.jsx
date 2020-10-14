@@ -11,9 +11,11 @@ export const FilterMenuContainer = styled.div`
     opacity: ${props => props.isVisible ? 0 : 1};
     transform: ${props => props.isVisible ? 'translateX(-500px)' : 'translateX(0px)'};
     z-index: 1;
+    position: sticky;
 
     @media(max-width: 1100px) {
         position: fixed;
+        display: none;
     }
 `
 

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './video.styles.scss'
+
 const Video = ({url}) => {
     return (
         <video 

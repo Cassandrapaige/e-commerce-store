@@ -1,9 +1,25 @@
 import React, {useState} from 'react'
+import {withRouter} from 'react-router-dom'
 
 import './search-input.styles.scss'
 
-const SearchInput = ({handleSubmit, handleChange, value}) => {
+const SearchInput = ({history}) => {
+    const [value, setValue] = useState('');
     const [isVisible, setIsVisible] = useState(false)
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        history.push({
+            pathname: '/search',
+            search: value
+        })
+        setValue('')
+    }
+
+    const handleChange = event => {
+        let value = event.target.value;
+        setValue(value);
+    }
 
     return (
         <form className = {`search-form ${isVisible && 'expand-search'}`} onSubmit={handleSubmit}>
@@ -19,4 +35,4 @@ const SearchInput = ({handleSubmit, handleChange, value}) => {
     )
 }
 
-export default SearchInput
+export default withRouter(SearchInput)

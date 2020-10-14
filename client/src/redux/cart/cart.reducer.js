@@ -8,7 +8,7 @@ import { addItemToCart,
 const INITIAL_STATE = {
     hidden: true,
     cartItems: [],
-    successMessage: ''
+    successMessage: false
 }
 
 const cartReducer = (currentState = INITIAL_STATE, action) => {
@@ -22,7 +22,7 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
             return {
                 ...currentState,
                 cartItems: addItemToCart(currentState.cartItems, action.payload),
-                successMessage: <span><i class="fas fa-check"></i>Added to cart</span>
+                successMessage: true
             }
         case CartActionTypes.REMOVE_ITEM:
             return {

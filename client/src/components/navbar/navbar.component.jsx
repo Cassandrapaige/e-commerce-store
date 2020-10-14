@@ -14,12 +14,18 @@ import Logo from '../logo-container/logo-container.component'
 
 import SignIn from '../sign-in/sign-in.component'
 
-import './navbar.styles.scss'
-
 import {
+    UpperNavbar,
+    LowerNavbar,
+    MobileNavbar,
     NavbarContainer,
     OptionsContainer,
     OptionLink,
+    HamburgerIconContainer,
+    HamburgerIconBottom,
+    HamburgerIconTop,
+    HamburgerIconMiddle,
+    MobileIcons
 } from './navbar.styles'
 import SearchInput from '../search-input/search-input.component'
 
@@ -29,7 +35,7 @@ const Navbar = ({ currentUser, hidden, signOutStart }) => {
     return (
     <>
     <NavbarContainer>
-        <div className="upper-nav">
+        <UpperNavbar>
             {
             currentUser ? 
                 <OptionLink as='div' onClick = {signOutStart} > <i className="fas fa-user"></i> My Profile </OptionLink>
@@ -39,19 +45,33 @@ const Navbar = ({ currentUser, hidden, signOutStart }) => {
             <a href = 'https://twitter.com/CassandraPaigee' target='_blank'>Help</a>
             <CartIcon />
             <OptionLink as = 'div'><i className="fas fa-map-marker-alt"></i> Canada</OptionLink>
-        </div>
-        <div className="lower-nav">
-          <Logo/>
+        </UpperNavbar>
 
+        <LowerNavbar>
+          <Logo/>
             <OptionsContainer>
-                <OptionLink isCollection to ='/shop'>COLLECTIONS</OptionLink>
-                <OptionLink isCollection to ='/shop/mens'>MENS</OptionLink>
-                <OptionLink isCollection to ='/shop/womens'>WOMENS</OptionLink>
-                <OptionLink isCollection to ='/shop/kids'>KIDS</OptionLink>
+                <OptionLink to ='/shop/mens'>MENS</OptionLink>
+                <OptionLink to ='/shop/womens'>WOMENS</OptionLink>
+                <OptionLink to ='/shop/kids'>KIDS</OptionLink>
+                <OptionLink to ='/shop'>COLLECTIONS</OptionLink>
             </OptionsContainer>
             <SearchInput />
-        </div>
+        </LowerNavbar>
         <CartDropdown hidden = {hidden}/> 
+
+        <MobileNavbar>
+            <Logo />
+            <MobileIcons>
+                <i className="fas fa-search" style= {{fontSize: '20px'}}></i>
+                <CartIcon isMobile/>
+                <HamburgerIconContainer>
+                    <HamburgerIconTop/>
+                    <HamburgerIconMiddle/>
+                    <HamburgerIconBottom/>
+                </HamburgerIconContainer>
+            </MobileIcons>
+        </MobileNavbar>
+  
     </NavbarContainer>
     <SignIn hidden = {showSignInDropdown} setHidden = {setShowSignInDropdown}/>
 </>

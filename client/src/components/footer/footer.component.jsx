@@ -1,18 +1,44 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-import {FooterContainer, NavigationListsContainer, ContactLinksContainer, SocialLink, NavigationItem, NavigationListContainer, Title} from './footer.styles'
+import {FooterContainer, NavigationListsContainer, ContactLinksContainer, SocialLink, NavigationItem, NavigationListContainer, Title, SneakyFooter} from './footer.styles'
 
 const NavigationList = ({data, title, ...props}) => (
     <NavigationListContainer>
-        <Title>{title}</Title>
+        <Title {...props}>{title}</Title>
             {
                 data.map(item => (
-                    <NavigationItem {...props}>{item.link}</NavigationItem>
+                    <NavigationItem {...props} key = {item.id}>{item.link}</NavigationItem>
                 ))
             }
     </NavigationListContainer>
 )
+
+const Footer = () => {
+    return (
+        <FooterContainer>
+            <NavigationListsContainer>
+                <NavigationList isCapitalized data = {FOOTER_CUSTOMER_DATA}/>
+                <NavigationList withPadding data = {FOOTER_HELP_DATA} title = 'Get Help'/>
+                <NavigationList withPadding data = {FOOTER_ABOUT_DATA} title = 'About Nike'/>
+            </NavigationListsContainer>
+
+            <ContactLinksContainer>
+                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i className="fab fa-twitter"></i></SocialLink>
+                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i className="fab fa-facebook-f"></i></SocialLink>
+                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i className="fab fa-youtube"></i></SocialLink>
+                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i className="fab fa-instagram"></i></SocialLink>
+            </ContactLinksContainer>
+            <SneakyFooter>
+                <p><i className="fas fa-map-marker-alt"></i> Canada</p>
+                <p>If you're here because you're thinking about hiring me, <NavLink to = '/justdoit'>click here.</NavLink></p>
+            </SneakyFooter>
+        
+        </FooterContainer>
+    )
+}
+
+export default Footer
 
 const FOOTER_ABOUT_DATA = [
     {
@@ -74,24 +100,3 @@ const FOOTER_HELP_DATA = [
         link: 'contact us'
     }
 ]
-
-const Footer = () => {
-    return (
-        <FooterContainer>
-            <NavigationListsContainer>
-                <NavigationList isCapitalized data = {FOOTER_CUSTOMER_DATA}/>
-                <NavigationList data = {FOOTER_HELP_DATA} title = 'Get Help' />
-                <NavigationList data = {FOOTER_ABOUT_DATA} title = 'About Nike' />
-            </NavigationListsContainer>
-
-            <ContactLinksContainer>
-                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i class="fab fa-twitter"></i></SocialLink>
-                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i class="fab fa-facebook-f"></i></SocialLink>
-                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i class="fab fa-youtube"></i></SocialLink>
-                <SocialLink to = 'https://twitter.com/CassandraPaigee'><i class="fab fa-instagram"></i></SocialLink>
-            </ContactLinksContainer>
-        </FooterContainer>
-    )
-}
-
-export default Footer

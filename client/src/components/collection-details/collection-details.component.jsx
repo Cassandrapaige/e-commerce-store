@@ -9,9 +9,13 @@ import CustomButton from '../custom-button/cutom-button.component'
 import SizeChart from '../size-chart/size-chart.component'
 import ItemHeader from '../item-header/item-header.component'
 
-import './collection-details.styles.scss'
+import {ImageContainer} from './collection-details.styles'
 
-const CollectionDetails = ({items, addItem, hidden}) => {      
+import './collection-details.styles.scss'
+import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
+
+const CollectionDetails = ({items, addItem, hidden}) => {   
+    const [isLoading, setIsLoading] = useState(false)   
 
     const [message, setMessage] = useState('');
 
@@ -36,11 +40,22 @@ const CollectionDetails = ({items, addItem, hidden}) => {
             {items.map(item => (
                 <>
                 <div className="details-image-grid">
-                    <img src={item.imageUrl} alt={item.name}/>
+                        {isLoading ? 
+                        <ImageContainer as = 'div'>
+                            <SkeletonScreen />
+                        </ImageContainer>
+                        :
+                        <ImageContainer src={item.imageUrl} alt={item.name} />}
+
                     {item.videoUrl && <Video url = {item.videoUrl}/>}
                     
                     {item.images.map(image => (
-                        <img src={image} alt={item.name}/>
+                        isLoading ? 
+                        <ImageContainer as = 'div'>
+                            <SkeletonScreen />
+                        </ImageContainer>
+                        :
+                        <ImageContainer src={image} alt={item.name} />
                      ))}
                 </div>
 

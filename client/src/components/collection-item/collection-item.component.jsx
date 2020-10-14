@@ -16,14 +16,18 @@ import {ImageContainer,
 
 import ItemHeader from '../item-header/item-header.component'
 import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
+import ItemDetails from '../item-details/item-details.component'
 
-const CollectionItem = ({ item, history, match, isFilterMenuHidden}) => {
+const CollectionItem = ({ item, match, isFilterMenuHidden}) => {
     const { name, price, type, imageUrl, images, id} = item
     const [showImages, setShowImages] = useState(false)
     const [image, setImage] = useState(imageUrl)
     const [isLoading, setIsLoading] = useState(true)
 
-    const handleClick = type => setImage(type)
+    const handleClick = type => {
+        setImage(type);
+    }
+    
     const handleMouseEnter = () => setShowImages(true)
     const handleMouseLeave = () => {
         setShowImages(false)
@@ -39,18 +43,14 @@ const CollectionItem = ({ item, history, match, isFilterMenuHidden}) => {
     return (
     <CollectionItemContainer
         onMouseEnter = {handleMouseEnter} 
-        onMouseLeave = {handleMouseLeave}
-        onClick = {() => {history.push(`/shop/details/${id}`)}}>
+        onMouseLeave = {handleMouseLeave}>
 
-        {isLoading ?
-        <ImageContainer as = 'div' withMargin = {isFilterMenuHidden}>
-            <SkeletonScreen />
-        </ImageContainer>
-        :
-        <ImageContainer src = {image} alt = {name} withMargin = {isFilterMenuHidden}/>
-        }
+        <ItemDetails 
+            isLoading = {isLoading} 
+            withMargin = {isFilterMenuHidden} 
+            image = {image}
+            item = {item} />
         <CollectionItemFooter>
-        <ItemHeader item = {item} />
         <ImagePreviewContainer>   
             {showImages && !isLoading ? 
             <ImageGridContainer>
@@ -58,9 +58,12 @@ const CollectionItem = ({ item, history, match, isFilterMenuHidden}) => {
                     onMouseEnter = {() => handleClick(imageUrl)}/>
 
                     {images.filter((item, idx) => idx < 3)
-                        .map(image => (
+                        .map((image, index) => (
 
-                    <Image src={image} alt={name} 
+                    <Image 
+                        src={image} 
+                        alt={name} 
+                        key = {index}
                         onMouseEnter = {() => handleClick(image)}/>
                     ))}
                 <div className="plus_images">+{images.length - 3}</div>
@@ -76,4 +79,4 @@ const mapStateToProps = createStructuredSelector({
     isFilterMenuHidden: selectFilterMenu
 })
 
-export default withRouter(connect(mapStateToProps)(CollectionItem))
+export default connect(mapStateToProps)(CollectionItem)

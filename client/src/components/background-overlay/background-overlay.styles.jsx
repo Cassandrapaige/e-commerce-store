@@ -7,6 +7,5 @@ export const Overlay = styled.div`
     height: 100%;
     left: 0;
     top: ${props => props.fixedTop ? '0px' : '115px'};
-    z-index: 5000;
-    display: none;
+    z-index: 1500;
 `

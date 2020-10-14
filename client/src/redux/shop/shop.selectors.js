@@ -58,7 +58,10 @@ export const selectCollectionTags = createSelector(
         .map(collection => collection.items.map(item => item.tags).flat(1))
 )
 
-export const selectCollectionByQuery = query => createSelector(
+export const selectCollectionBySearchQuery = query => createSelector(
     [selectCollectionForPreview],
-    collections => collections.filter(item => item.title.includes(query))
+    collections => collections.map(collection => 
+        collection.items.filter(item => 
+        item.name.toLowerCase().includes(query)
+        || item.tags.includes(query)))
 )

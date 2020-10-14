@@ -11,9 +11,12 @@ import {
     ProgressBar
 }from './scrolling-wrapper.styles'
 
+import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
 import ItemHeader from '../item-header/item-header.component'
+import ItemDetails from '../item-details/item-details.component'
 
 const ScrollingContainer = ({collections, children}) => {
+  const [isLoading, setIsLoading] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const getscrollPosition = window.innerWidth / 3;
   const [scrollPosition, setScrollPosition] = useState(getscrollPosition)
@@ -24,7 +27,7 @@ const ScrollingContainer = ({collections, children}) => {
       return () => window.removeEventListener('resize', () => setScrollPosition())
   },[])
 
-  const POS = {
+  const POS = { 
     LEFT: -scrollPosition,
     RIGHT: scrollPosition,
   }
@@ -48,11 +51,16 @@ return (
       <h2>You might also like</h2>
       <ScrollingContent>
       {
-        collections.map(collection => 
-          <WrapperItem>
-            <img src={collection.imageUrl} alt={collection.name}/>
-              <ItemHeader item = {collection} />
-          </WrapperItem>
+        collections.map(collection => (
+          isLoading ? 
+            <WrapperItem>
+              <SkeletonScreen />
+            </WrapperItem>
+            :
+            <WrapperItem>
+              <ItemDetails isLoading = {isLoading} item = {collection} />
+            </WrapperItem>
+          )
         )
       }
       <Arrow

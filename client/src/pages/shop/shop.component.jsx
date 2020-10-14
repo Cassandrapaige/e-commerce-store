@@ -8,8 +8,6 @@ import {selectIsCollectionFetching, selectIsCollectionLoaded} from '../../redux/
 
 import Spinner from '../../components/spinner/spinner.component'
 
-import './shop.styles.scss'
-
 const CollectionOverviewPage = lazy(() => import('../collection-overview-page/collection-overview-page.component'));
 const CollectionPageContainer = lazy(() => import('../collection/collection.container'));
 const CollectionDetailsPage = lazy(() => import('../collection-details/collection-details.component'));
@@ -31,10 +29,6 @@ const ShopPage = ({match, isLoaded, isFetching, fetchCollectionsStart}) => {
             />
             <Route 
                 exact path = {`${match.path}/:collectionId`} 
-                component = {CollectionPageContainer}
-            />
-            <Route 
-                exact path ={`${match.path}/query/:query`} 
                 component = {CollectionPageContainer}
             />
             <Route 

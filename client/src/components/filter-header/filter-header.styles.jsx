@@ -8,6 +8,10 @@ export const FilterHeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     z-index: 1000;
+
+    @media(max-width: 1100px) {
+        top: 55px;
+    }
 `
 
 export const Title = styled.h2`
@@ -23,6 +27,7 @@ export const FilterOptionsContainer = styled.div`
     align-items: center;
     position: relative;
     background: white;
+    z-index: 1000;
 `
 
 export const FilterOption = styled.div`
@@ -49,7 +54,7 @@ export const SortDropdownContainer = styled.div`
     padding: 30px 10px;
     border-radius: 0 0 20px 20px;
     transition: all .3s ease;
-    z-index: 900;
+    z-index: 20;
     transform: 'translateY(0px)';
     opacity: 1;
     visibility: visible;

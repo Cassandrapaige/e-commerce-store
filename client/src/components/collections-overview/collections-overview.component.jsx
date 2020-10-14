@@ -12,8 +12,6 @@ import CustomButton from '../custom-button/cutom-button.component'
 import './collections-overview.styles.scss'
 
 const CollectionsOverview = ({ collections, history, isPreview }) => {
-
-    console.log(collections)
     return(
     <div className="collections-overview">
         {collections.map(({id, mainImg, title, routeName, ...rest}) => (

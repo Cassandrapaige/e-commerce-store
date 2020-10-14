@@ -2,6 +2,20 @@ import styled, {css} from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const SignInContainer = styled.div`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 38px;
+    background: #fff;
+    border-radius: 5px;
+    z-index: 6800;
+`
+
+export const SignInForm = styled.div`
     width: 380px;   
     display: flex;
     flex-direction: column;

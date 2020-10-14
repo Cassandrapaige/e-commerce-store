@@ -8,6 +8,7 @@ overflow-x: hidden;
 ` 
 export const ScrollingWrapper = styled.div`
     position: relative;
+    min-height: 400px;
 
     h2 {
         margin-bottom: 30px;
@@ -29,12 +30,8 @@ export const ScrollingContent = styled.div`
     }
 `
     
-export const WrapperItem = styled.div`    
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+export const WrapperItem = styled.div`  
+    height: auto;
 `
   
 export const Arrow = styled.div`

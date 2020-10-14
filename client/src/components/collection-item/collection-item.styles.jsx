@@ -9,18 +9,6 @@ export const CollectionItemContainer = styled.div`
     z-index: 1;
 `
 
-export const ImageContainer = styled.img`
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    transition: all .5s ease;
-    height: ${props => props.withMargin  ? '390px' : '340px'};
-
-    @media (max-width: 1100px) {
-        height: auto;
-    }
-`
-
 export const ImageGridContainer = styled.div`
     width: 100%;
     margin-top: 8px;  

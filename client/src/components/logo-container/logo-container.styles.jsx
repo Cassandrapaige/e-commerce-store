@@ -7,6 +7,11 @@ export const LogoContainer = styled(Link)`
     padding: 22px 25px;
     display: flex;
     align-items: center;
+
+    @media(max-width: 1100px) {
+        width: 90px;
+        padding: 10px 20px;
+    }
 `
 
 export const LogoImage = styled.img`

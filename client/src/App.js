@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, useLocation } from 'react-router-dom'
+
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 
@@ -23,10 +24,22 @@ import { selectCurrentUser } from './redux/user/user.selector';
 import './App.scss';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'))
+const SearchResultsPage = lazy(() => import('./pages/search-results/search-results.component'))
 const ShopPage = lazy(() => import('./pages/shop/shop.component'))
 const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'))
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'))
 const CollectionDetailsPage = lazy(() => import('./pages/collection-details/collection-details.component'))
+const HireMePage = lazy(() => import('./pages/hire_me/hire_me.component'))
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const App = (
       {// collectionsArray, 
@@ -42,13 +55,16 @@ const App = (
   }, [checkUserSession])
 
     return (
-      <div>
-          <Navbar/>
+      <div className = 'App'>
+        <ScrollToTop />
+        <Navbar/>
           <Switch>
             <Suspense fallback = {<Spinner />}>
               <Route exact path='/' component={Homepage} />
+              <Route path = '/search' component={SearchResultsPage} />
               <Route path = '/shop' component = {ShopPage} />
               <Route exact path = '/checkout' component = {CheckoutPage} />
+              <Route exact path = '/justdoit' component = {HireMePage} />
               <Route exact path = '/login' render = {() => currentUser ? 
                   (<Redirect to = '/' />) : 
                   (<SignInAndSignUpPage />)} />
