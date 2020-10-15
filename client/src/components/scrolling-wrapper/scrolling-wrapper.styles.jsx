@@ -4,8 +4,10 @@ export const ScrollingWrapperContainer = styled.div`
 padding: 50px 0 50px 0px;
 max-width: 100vw;
 overflow-x: hidden;
-
+opacity: 0;
+animation: 1s fadeIn ease 1s forwards;
 ` 
+
 export const ScrollingWrapper = styled.div`
     position: relative;
     min-height: 400px;
@@ -28,10 +30,15 @@ export const ScrollingContent = styled.div`
     &::-webkit-scrollbar {
     display: none
     }
+
+    @media(max-width: 800px) {
+        grid-template-columns: repeat(12, 50%);
+        gap: 5px;
+    }
 `
     
 export const WrapperItem = styled.div`  
-    height: auto;
+    height: 300px;
 `
   
 export const Arrow = styled.div`
@@ -68,6 +75,10 @@ export const Arrow = styled.div`
 export const ProgressBarContainer = styled.div`
     width: 95%;
     margin-top: 50px;
+
+    @media(max-width: 800px) {
+        margin-top: 30px;
+    }
 `
 
 export const Scrollbar = styled.div`

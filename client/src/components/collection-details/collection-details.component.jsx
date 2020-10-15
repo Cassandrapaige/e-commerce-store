@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 
 import {addItem} from '../../redux/cart/cart.actions'
@@ -14,9 +14,7 @@ import {ImageContainer} from './collection-details.styles'
 import './collection-details.styles.scss'
 import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
 
-const CollectionDetails = ({items, addItem, hidden}) => {   
-    const [isLoading, setIsLoading] = useState(false)   
-
+const CollectionDetails = ({isLoading, items, addItem, hidden}) => {   
     const [message, setMessage] = useState('');
 
     const getItemSize = (item, event) => {
@@ -40,7 +38,7 @@ const CollectionDetails = ({items, addItem, hidden}) => {
             {items.map(item => (
                 <>
                 <div className="details-image-grid">
-                        {isLoading ? 
+                    {isLoading ? 
                         <ImageContainer as = 'div'>
                             <SkeletonScreen />
                         </ImageContainer>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 
 import {selectItemDetails, selectCollectionByFilter} from '../../redux/shop/shop.selectors'
@@ -7,8 +7,17 @@ import CollectionDetails from '../../components/collection-details/collection-de
 import ScrollingContainer from '../../components/scrolling-wrapper/scrolling-wrapper.component'
 
 const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const id = match.params.itemId;
     const collectionLength = 12;
+
+    useEffect(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000)
+    }, [])
 
     /*
         Find the first tag in collection array to filter similar data
@@ -50,12 +59,12 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
     console.log(getCollection('lifestyle'))
 
     return (
-        <div className = 'collection-details-page' style= {{padding: `0 50px`, minHeight: `100vh`}}>
+        <div className = 'collection-details-page' style= {{minHeight: `100vh`}}>
            {collections.map(collection => (
-               <CollectionDetails items = {collection}/>
+               <CollectionDetails items = {collection} isLoading = {isLoading}/>
             ))
             }
-            <ScrollingContainer collections = {getCollection(matchedTag)} />
+            <ScrollingContainer isLoading = {isLoading} collections = {getCollection(matchedTag)} />
         </div>
     )
 }

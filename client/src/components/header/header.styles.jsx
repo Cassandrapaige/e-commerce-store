@@ -11,8 +11,6 @@ background-size: cover;
 width: 100%;
 margin: auto;
 z-index: 1;
-opacity: 0;
-animation: .5s fadeIn ease forwards .5s;
 
 button {
     width: 200px;

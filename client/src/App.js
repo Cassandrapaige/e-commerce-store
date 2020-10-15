@@ -58,6 +58,7 @@ const App = (
       <div className = 'App'>
         <ScrollToTop />
         <Navbar/>
+        <div className="container">
           <Switch>
             <Suspense fallback = {<Spinner />}>
               <Route exact path='/' component={Homepage} />
@@ -70,6 +71,7 @@ const App = (
                   (<SignInAndSignUpPage />)} />
             </Suspense>
           </Switch>
+        </div>
           <Footer />
       </div>
     );

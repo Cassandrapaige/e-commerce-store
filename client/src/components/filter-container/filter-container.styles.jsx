@@ -15,12 +15,12 @@ export const FilterOptionsHeader = styled.div`
 `
 
 export const CollapsibleContainer = styled.div`
-    max-height: ${props => props.isOpen ? '100vh' : '0px'};
+    max-height: ${({isOpen}) => isOpen ? '100vh' : '0px'};
     overflow: hidden;
     transition: max-height .25s ease-in-out;
 `
 
 export const FilterOptions = styled.div`
-    padding-bottom: ${props => props.isOpen ? '12px' : '0px'};
+    padding-bottom: ${({isOpen}) => isOpen ? '12px' : '0px'};
     transition: all .3s linear;
 `

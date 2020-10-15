@@ -15,7 +15,6 @@ import {ImageContainer,
         CollectionItemContainer} from './collection-item.styles'
 
 import ItemHeader from '../item-header/item-header.component'
-import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
 import ItemDetails from '../item-details/item-details.component'
 
 const CollectionItem = ({ item, match, isFilterMenuHidden}) => {

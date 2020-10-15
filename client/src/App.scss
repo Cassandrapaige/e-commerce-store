@@ -11,6 +11,14 @@ a {
   scroll-behavior: smooth;
 }
 
+.container {
+  padding: 0 50px;
+
+  @media(max-width: 1100px) {
+    padding: 0 10px;
+  }
+}
+
 @keyframes fadeIn {
   from {
       opacity: 0

@@ -21,7 +21,10 @@
     }
 
     input[type='radio'] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
+        
         &:checked + label {
             background: black;
             color: #fff;

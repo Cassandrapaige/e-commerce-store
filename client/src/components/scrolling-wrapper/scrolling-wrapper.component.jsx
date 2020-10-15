@@ -15,8 +15,7 @@ import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
 import ItemHeader from '../item-header/item-header.component'
 import ItemDetails from '../item-details/item-details.component'
 
-const ScrollingContainer = ({collections, children}) => {
-  const [isLoading, setIsLoading] = useState(false)
+const ScrollingContainer = ({isLoading, collections, children}) => {
   const [scrollProgress, setScrollProgress] = useState(0)
   const getscrollPosition = window.innerWidth / 3;
   const [scrollPosition, setScrollPosition] = useState(getscrollPosition)
@@ -57,9 +56,7 @@ return (
               <SkeletonScreen />
             </WrapperItem>
             :
-            <WrapperItem>
               <ItemDetails isLoading = {isLoading} item = {collection} image = {collection.imageUrl}/>
-            </WrapperItem>
           )
         )
       }

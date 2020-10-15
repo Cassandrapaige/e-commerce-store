@@ -50,9 +50,6 @@ export const FormGroup = styled.div`
         width: 22px;
         height: 22px;
         opacity: 0;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
     }
 
     label {

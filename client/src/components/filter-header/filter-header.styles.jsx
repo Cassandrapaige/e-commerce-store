@@ -9,11 +9,12 @@ export const FilterHeaderContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     z-index: 1000;
-    padding: 0 50px;
+    padding: 10px 50px;
 
     @media(max-width: 1100px) {
+        padding: 10px 10px;
         top: 40px;
-    }
+      }
 `
 
 export const Title = styled.h2`
@@ -25,7 +26,7 @@ export const Title = styled.h2`
 
     @media(max-width: 800px) {
         font-size: 20px;
-        padding: 20px 0;
+        padding: 10px 0;
     }
 `
  
