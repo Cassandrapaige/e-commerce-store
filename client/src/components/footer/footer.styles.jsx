@@ -6,12 +6,22 @@ export const FooterContainer = styled.div`
     grid-template-columns: 60% 40%;
     background: #111;
     padding: 40px 40px 10px 40px;
+    z-index: -1;
+
+    @media(max-width: 800px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 
 export const NavigationListsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: 30px;
+    gap: 20px;
+
+    @media(max-width: 1200px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 
 export const NavigationListContainer = styled.ul`
@@ -29,7 +39,6 @@ export const NavigationItem = styled.li`
         font-weight: 700;
         text-transform: uppercase;
         color: #fff;
-        font-family: var(--condensed-text);
 
         &:nth-of-type(1) {
             padding-top: 0;
@@ -42,7 +51,6 @@ export const Title = styled.h2`
     text-transform: uppercase;
     font-size: 14px;
     padding-bottom: ${props => props.withPadding ? '5' : '0'}px;
-    font-family: var(--condensed-text);
 `
 
 export const SocialLink = styled(Link)`
@@ -65,6 +73,11 @@ export const ContactLinksContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    padding-bottom: 30px;
+
+    @media(max-width: 800px) {
+        justify-content: flex-start;
+    }
 `
 
 export const SneakyFooter = styled.div`
@@ -76,6 +89,8 @@ export const SneakyFooter = styled.div`
     text-align: center;
     padding: 20px 0 10px 0;
     border-top: 1px solid rgba(139, 139, 139, .4);
+    flex-wrap: wrap;
+    line-height: 120%;
 
     p, i, a {
         color: #8b8b8b;

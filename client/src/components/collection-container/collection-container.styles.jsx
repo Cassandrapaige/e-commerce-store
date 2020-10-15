@@ -20,6 +20,7 @@ export const CollectionItemContainer = styled.div`
     grid-column: 1/-1;
     grid-row: 1/-1;
     transition: all .5s ease;
+    padding: 0 50px;
 
     @media(max-width: 1100px) {
         margin-left: 0;

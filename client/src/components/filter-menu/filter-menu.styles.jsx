@@ -4,14 +4,13 @@ export const FilterMenuContainer = styled.div`
     min-width: 300px;
     background: white;
     padding-right: 30px;
-    padding-bottom: 50px;
+    padding: 0px 30px 50px 50px;
     grid-row: 1/-1;
     grid-column: 1/2;
     transition: all .5s ease;
-    opacity: ${props => props.isVisible ? 0 : 1};
-    transform: ${props => props.isVisible ? 'translateX(-500px)' : 'translateX(0px)'};
+    opacity: ${({isVisible}) => isVisible ? 0 : 1};
+    transform: ${({isVisible}) => isVisible ? 'translateX(-500px)' : 'translateX(0px)'};
     z-index: 1;
-    position: sticky;
 
     @media(max-width: 1100px) {
         position: fixed;

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const FilterOptionsContainer = styled.div`
     border-bottom: 1px solid rgba(18, 18, 18, .2);
+    background: White;
+    width: 100%;
 `
 
 export const FilterOptionsHeader = styled.div`

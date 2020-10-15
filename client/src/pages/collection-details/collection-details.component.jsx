@@ -34,8 +34,6 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
             similar : [...similar, ...padItems]
     }
 
-    console.log(collections)
-
     /*
         Remove any duplicates that might be present in the array,
         filter out the current collection item,
@@ -47,10 +45,12 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
         .flat(1)
         .reduce((unique, item) => unique.includes(item) ? unique : [...unique, item], [])
         .filter(item => item.id != id)
-        .filter((item, idx) => idx < collectionLength)
+        .filter((item, idx) => idx < collectionLength);
+
+    console.log(getCollection('lifestyle'))
 
     return (
-        <div className = 'collection-details-page'>
+        <div className = 'collection-details-page' style= {{padding: `0 50px`, minHeight: `100vh`}}>
            {collections.map(collection => (
                <CollectionDetails items = {collection}/>
             ))

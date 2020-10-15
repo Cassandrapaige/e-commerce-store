@@ -7,19 +7,26 @@ export const FilterHeaderContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     z-index: 1000;
+    padding: 0 50px;
 
     @media(max-width: 1100px) {
-        top: 55px;
+        top: 40px;
     }
 `
 
 export const Title = styled.h2`
     transition: all .3s ease;
-    font-size: ${props => props.isPassedTop ? '22px' : '28px'};
+    font-size: ${({isPassedTop}) => isPassedTop ? '22px' : '28px'};
+    padding: ${({isPassedTop})  => isPassedTop ? '22px 0' : '25px 0'};
     font-weight:500;
-    padding: ${props => props.isPassedTop ? '22px 0' : '25px 0'};
     text-transform: capitalize;
+
+    @media(max-width: 800px) {
+        font-size: 20px;
+        padding: 20px 0;
+    }
 `
  
 export const FilterOptionsContainer = styled.div`
@@ -34,13 +41,16 @@ export const FilterOption = styled.div`
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-left: 20px;
     height: 100%;
+
+    &:nth-of-type(2) {
+        margin-left: 20px;
+    }
 
     .fas {
         padding-left: 8px;
         transition: all .5s ease;
-        transform: ${props => props.isFilterMenuHidden ? 'rotate(180deg)' : 'rotate(0deg)'};
+        transform: ${({isFilterMenuHidden}) => isFilterMenuHidden ? 'rotate(180deg)' : 'rotate(0deg)'};
     }
 `
 

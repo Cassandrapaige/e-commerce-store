@@ -23,7 +23,7 @@ export const CustomCheckbox = styled.div`
         border-width: 0 2px 2px 0;
     }
 
-    ${props => props.inverted && css`
+    ${({inverted}) => inverted && css`
         width: 18px;
         height: 18px;
         border: 1px solid #8d8d8d;
@@ -50,6 +50,9 @@ export const FormGroup = styled.div`
         width: 22px;
         height: 22px;
         opacity: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 
     label {

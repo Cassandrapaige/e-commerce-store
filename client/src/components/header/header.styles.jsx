@@ -32,10 +32,14 @@ justify-content: flex-end;
 align-items: start;
 flex-direction: column;
 padding: 50px;
-background: rgba(0, 0, 0, 0.1);
+background: linear-gradient(to top, rgba(19, 19, 19, .3), rgba(19, 19, 19, .1));
 
 @media (max-width: 1100px) {
     padding: 30px;
+}
+
+@media(max-width: 1100px) {
+    padding: 10px;
 }
 `
 

@@ -11,16 +11,6 @@ a {
   scroll-behavior: smooth;
 }
 
-.shop-page {
-  padding: 0 50px 50px 50px;
-}
-
-@media (max-width: 1000px) {
-  .shop-page {
-      padding: 10px;
-  }
-}
-
 @keyframes fadeIn {
   from {
       opacity: 0

@@ -18,7 +18,7 @@ const Footer = () => {
     return (
         <FooterContainer>
             <NavigationListsContainer>
-                <NavigationList isCapitalized data = {FOOTER_CUSTOMER_DATA}/>
+                <NavigationList data = {FOOTER_CUSTOMER_DATA}/>
                 <NavigationList withPadding data = {FOOTER_HELP_DATA} title = 'Get Help'/>
                 <NavigationList withPadding data = {FOOTER_ABOUT_DATA} title = 'About Nike'/>
             </NavigationListsContainer>

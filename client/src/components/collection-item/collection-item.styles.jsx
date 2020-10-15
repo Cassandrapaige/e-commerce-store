@@ -22,7 +22,7 @@ export const ImagePreviewContainer = styled.div`
 
     @media (max-width: 600px) {
         display: none;
-     }
+    }
 `
 
 export const Image = styled.img`

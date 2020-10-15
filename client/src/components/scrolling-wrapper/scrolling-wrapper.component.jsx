@@ -58,7 +58,7 @@ return (
             </WrapperItem>
             :
             <WrapperItem>
-              <ItemDetails isLoading = {isLoading} item = {collection} />
+              <ItemDetails isLoading = {isLoading} item = {collection} image = {collection.imageUrl}/>
             </WrapperItem>
           )
         )
