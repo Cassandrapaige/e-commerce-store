@@ -1,9 +1,11 @@
 .hire-me-page {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 50px;
 
     img {
-        width: 50%;
+        width: 100%;
         object-fit: cover;
     }
 }
