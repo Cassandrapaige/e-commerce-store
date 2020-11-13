@@ -6,6 +6,7 @@ max-width: 100vw;
 overflow-x: hidden;
 opacity: 0;
 animation: 1s fadeIn ease 1s forwards;
+background: #fff
 ` 
 
 export const ScrollingWrapper = styled.div`

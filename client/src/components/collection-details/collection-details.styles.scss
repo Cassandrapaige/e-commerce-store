@@ -3,6 +3,7 @@
     grid-template-columns: 70% 30%;
     gap: 20px;
     padding-top: 10px;
+    height: 100%;
 
     .details {
         display: flex;
@@ -64,15 +65,17 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 550px;
     gap: 20px;
 
     img, video {
         object-fit: cover;
         width: 100%;
     }
-
+    
     @media(max-width: 800px) {
         gap: 5px;
+        grid-template-rows: 250px;
     }
 }
 

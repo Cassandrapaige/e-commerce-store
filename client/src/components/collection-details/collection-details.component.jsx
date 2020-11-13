@@ -25,12 +25,12 @@ const CollectionDetails = ({isLoading, items, addItem, hidden}) => {
 
     const addItemToCart = item => {
         if(item.size){
-            addItem(item)
-            hidden()
+            addItem(item);
+            hidden();
         } else {
-            setMessage('Please select a size.')
+            setMessage('Please select a size.');
         }
-        return false
+        return false;
     }
 
     return (

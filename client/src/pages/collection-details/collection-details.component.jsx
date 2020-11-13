@@ -56,10 +56,8 @@ const CollectionDetailsPage = ({collections, selectCollectionByFilter, match}) =
         .filter(item => item.id != id)
         .filter((item, idx) => idx < collectionLength);
 
-    console.log(getCollection('lifestyle'))
-
     return (
-        <div className = 'collection-details-page' style= {{minHeight: `100vh`}}>
+        <div className = 'collection-details-page'>
            {collections.map(collection => (
                <CollectionDetails items = {collection} isLoading = {isLoading}/>
             ))
