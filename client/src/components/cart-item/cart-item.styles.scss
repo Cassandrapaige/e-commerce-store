@@ -3,11 +3,23 @@
     display: flex;
     margin-bottom: 15px;
     cursor: pointer;
+    align-items: start;
+    max-height: 300px;
  
-    img {
+    .cart-image-container {
         width: 30%;
-        object-fit: cover;
+    
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
     }
+
+    @media(max-width: 600px) {
+        grid-template-columns: auto auto;
+    }
+    
 
     .item-details {
         width: 70%;

@@ -16,7 +16,9 @@ const CartItem = ({item, history, dispatch}) => {
         dispatch(toggleCartHidden())
         history.push(`/shop/details/${id}`)}}
     >
-        <img src={imageUrl} alt={name}/>
+        <div className="cart-image-container">
+            <img src={imageUrl} alt={name}/>
+        </div>
         <div className="item-details">
             <ItemHeader item = {item}/>
             <span>Size {size}</span>
