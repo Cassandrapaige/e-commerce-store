@@ -8,6 +8,10 @@
         color: #111;
     }
 
+    .button-container {
+        z-index: 1000;
+    }
+
     .summary-group {
         display: flex;
         justify-content: space-between;
@@ -54,6 +58,7 @@
 @media (max-width: 1000px) {
     .checkout-summary {
         margin-left: 0;
+        padding-top: 50px;
 
         .button-container {
             background: #fff;

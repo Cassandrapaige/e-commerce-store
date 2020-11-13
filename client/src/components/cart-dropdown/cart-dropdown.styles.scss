@@ -9,6 +9,15 @@
     right: 25px;
     z-index: 1600;
 
+    @media(max-width: 1100px) {
+        top: 46px;
+    }
+
+    @media(max-width: 600px) {
+        right: 0;
+        width: 100%;
+    }
+
     &-header {
         display: flex;
         justify-content: space-between;

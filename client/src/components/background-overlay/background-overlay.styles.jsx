@@ -8,4 +8,8 @@ export const Overlay = styled.div`
     left: 0;
     top: ${props => props.fixedTop ? '0px' : '115px'};
     z-index: 1500;
+
+    @media(max-width: 1100px) {
+        top: 46px;
+    }
 `
