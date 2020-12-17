@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/cutom-button.component'
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
-
 import { signUpStart } from '../../redux/user/user.actions';
 
 import './sign-up.styles.scss'

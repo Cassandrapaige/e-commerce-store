@@ -4,10 +4,12 @@ export const CollectionPageContainer = styled.div`
 display: grid;
 grid-template-columns: 300px 1fr;
 min-height: 100vh;
+padding: 0 50px;
 
 @media (max-width: 1000px) {   
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    padding: 0 10px;
 }
 `
 

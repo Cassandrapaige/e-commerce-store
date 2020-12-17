@@ -11,7 +11,7 @@ import './checkout-item.styles.scss'
 import ItemHeader from '../item-header/item-header.component'
 
 const CheckoutItem = ({ history, cartItem, clearItem, addItem, removeItem }) => {
-const {imageUrl, name, type, quantity, price, id, cartId, size, colour} = cartItem;
+const {imageUrl, name, quantity, cartId, size, colour} = cartItem;
 return (
     <div className="checkout-item">
         <div className="image-container">

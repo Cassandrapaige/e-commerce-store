@@ -1,5 +1,4 @@
 import React from 'react'
-import { createStructuredSelector } from 'reselect';
 
 import {connect} from 'react-redux'
 import {selectCollectionBySearchQuery} from '../../redux/shop/shop.selectors'
@@ -9,7 +8,6 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 const SearchResultsPage = ({ collections, history, match }) => {
     const query = history.location.search.slice(1).toLowerCase().replace(/%20/g, ' ');
 
-    console.log(collections);
     return (
         <div className = 'shop-page'>
           <CollectionsContainer title={`Results for ${query}`}>

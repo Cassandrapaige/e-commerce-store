@@ -12,7 +12,6 @@ import {
 }from './scrolling-wrapper.styles'
 
 import SkeletonScreen from '../skeleton-screen/skeleton-screen.component'
-import ItemHeader from '../item-header/item-header.component'
 import ItemDetails from '../item-details/item-details.component'
 
 const ScrollingContainer = ({isLoading, collections, children}) => {
@@ -21,8 +20,7 @@ const ScrollingContainer = ({isLoading, collections, children}) => {
   const [scrollPosition, setScrollPosition] = useState(getscrollPosition)
 
   useEffect(() => {
-      window.addEventListener('resize', () => {setScrollPosition(window.innerWidth / 3);
-      })
+      window.addEventListener('resize', () => setScrollPosition(window.innerWidth / 3));
       return () => window.removeEventListener('resize', () => setScrollPosition())
   },[])
 
@@ -62,11 +60,11 @@ return (
       }
       <Arrow
         onClick = {(el) => scrollWrapper(el, 'left')}>
-        <i class="fas fa-chevron-left"></i>
+        <i className= "fas fa-chevron-left"></i>
       </Arrow>
       <Arrow isRight
         onClick = {(el) => scrollWrapper(el, 'right')}>
-        <i class="fas fa-chevron-right"></i>
+        <i className= "fas fa-chevron-right"></i>
       </Arrow>
       </ScrollingContent>
     </ScrollingWrapper>

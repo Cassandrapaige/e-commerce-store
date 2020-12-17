@@ -3,15 +3,17 @@ import styled from 'styled-components'
 export const FilterMenuContainer = styled.div`
     min-width: 300px;
     background: white;
-    padding-right: 30px;
-    padding: 0px 30px 50px 50px;
+    padding: 0px 30px 50px 0px;
     grid-row: 1/-1;
     grid-column: 1/2;
     transition: all .5s ease;
     opacity: ${({isVisible}) => isVisible ? 0 : 1};
     transform: ${({isVisible}) => isVisible ? 'translateX(-500px)' : 'translateX(0px)'};
     z-index: 1;
-
+    position: sticky;
+    top: 100;
+    max-height: 100vh;
+    
     @media(max-width: 1100px) {
         position: fixed;
         display: none;

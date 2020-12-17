@@ -74,7 +74,6 @@ const config = {
             id: doc.id,
             title,
             items,
-            routeName,
             mainImg
         }
     })

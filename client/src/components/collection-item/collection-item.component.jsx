@@ -1,24 +1,20 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
-import {withRouter} from 'react-router-dom'
 
 import {selectFilterMenu} from '../../redux/shop/shop.selectors'
 
-import CustomButton from '../custom-button/cutom-button.component'
 
-import {ImageContainer, 
-        ImageGridContainer, 
+import {ImageGridContainer, 
         ImagePreviewContainer, 
         Image,
         CollectionItemFooter,
         CollectionItemContainer} from './collection-item.styles'
 
-import ItemHeader from '../item-header/item-header.component'
 import ItemDetails from '../item-details/item-details.component'
 
 const CollectionItem = ({ item, match, isFilterMenuHidden}) => {
-    const { name, price, type, imageUrl, images, id} = item
+    const { name, imageUrl, images} = item
     const [showImages, setShowImages] = useState(false)
     const [image, setImage] = useState(imageUrl)
     const [isLoading, setIsLoading] = useState(true)

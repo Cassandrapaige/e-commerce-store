@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 
@@ -42,7 +41,7 @@ const Navbar = ({ currentUser, hidden, signOutStart }) => {
                 :
                 <OptionLink as ='div' onClick = {() => setShowSignInDropdown(!showSignInDropdown)}>Join/Sign In to Nike Member Profile</OptionLink>
             }
-            <a href = 'https://twitter.com/CassandraPaigee' target='_blank'>Help</a>
+            <a href = 'https://twitter.com/CassandraPaigee' target='_blank' rel="noopener noreferrer" >Help</a>
             <CartIcon />
             <OptionLink as = 'div'><i className="fas fa-map-marker-alt"></i> Canada</OptionLink>
         </UpperNavbar>

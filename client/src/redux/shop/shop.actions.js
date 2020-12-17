@@ -17,17 +17,3 @@ export const fetchCollectionsFailure = errorMessage => ({
 export const toggleFillterMenu = () => ({
     type: ShopActionTypes.TOGGLE_FILTER_MENU
 })
-
-export const toggleSortByDropdown = () => ({
-    type: ShopActionTypes.TOGGLE_SORT_BY_DROPDOWN
-})
-
-export const sortCollectionsByDescendingPrice = collection => ({
-    type: ShopActionTypes.FETCH_COLLECTION_DESCENDING,
-    payload: collection
-})
-
-export const sortCollectionsByAscendingPrice = collection => ({
-    type: ShopActionTypes.FETCH_COLLECTION_ASCENDING,
-    payload: collection
-})

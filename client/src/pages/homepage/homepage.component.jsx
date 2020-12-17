@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import {fetchCollectionsStart} from '../../redux/shop/shop.actions'
 
-import {createStructuredSelector} from 'reselect'
 import {connect} from 'react-redux'
 
 import Header from '../../components/header/header.component'

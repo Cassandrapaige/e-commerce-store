@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 
-import CustomButton from '../custom-button/cutom-button.component'
 import StripeCheckoutButton from '../stripe-button/stripe-button.component'
 
 import './checkout-summary.styles.scss'

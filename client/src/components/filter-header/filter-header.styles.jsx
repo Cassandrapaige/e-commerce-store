@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
 export const FilterHeaderContainer = styled.div`
     position: sticky;
@@ -53,36 +53,4 @@ export const FilterOption = styled.div`
         transition: all .5s ease;
         transform: ${({isFilterMenuHidden}) => isFilterMenuHidden ? 'rotate(180deg)' : 'rotate(0deg)'};
     }
-`
-
-export const SortDropdownContainer = styled.div`
-    position: absolute;
-    top: 55px;
-    right: -10px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    padding: 30px 10px;
-    border-radius: 0 0 20px 20px;
-    transition: all .3s ease;
-    z-index: 20;
-    transform: 'translateY(0px)';
-    opacity: 1;
-    visibility: visible;
-    text-align: right;  
-    
-    span {
-        padding: 5px 0;
-        cursor: pointer;
-
-        &:hover {
-            color: #757575;
-        }
-    }
-
-    ${props => props.isDropdownHidden && css`
-        transform: translateY(-100px);
-        opacity: 0;
-        visibility: hidden;
-    `}
 `

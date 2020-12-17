@@ -1,72 +1,46 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {createStructuredSelector} from 'reselect'
 import {connect} from 'react-redux'
 
-import {toggleFillterMenu, toggleSortByDropdown} from '../../redux/shop/shop.actions'
-import { selectFilterMenu, selectSortByDropdown } from '../../redux/shop/shop.selectors'
+import {toggleFillterMenu} from '../../redux/shop/shop.actions'
+import { selectFilterMenu } from '../../redux/shop/shop.selectors'
 
-import {ArrowIcon, FilterIcon} from '../icons/icons.component'
+import {FilterIcon} from '../icons/icons.component'
+
+import useScrollPosition from '../../hooks/useScrollPosition'
 
 import {FilterHeaderContainer,
         Title,
         FilterOptionsContainer,
-        FilterOption,
-        SortDropdownContainer
+        FilterOption
     } from './filter-header.styles'
 
 const FilterHeader = ({
-        title, handleClick, 
+        title, 
         isFilterMenuHidden,             
-        isDropdownHidden, 
-        setIsDropdownHidden, 
         setIsFilterMenuHidden}) => {
 
-    const [isPassedTop, setIsPassedTop] = useState(false)
-
-    const addStylesOnPageScroll = () => {
-        if(window.pageYOffset > 150) {
-            setIsPassedTop(true)
-        } else {
-            setIsPassedTop(false)
-        }
-    }
-    
-    useEffect(() => {
-        window.addEventListener('scroll', addStylesOnPageScroll);
-        return () => window.removeEventListener('scroll', addStylesOnPageScroll)
-    }, [])
+    const scrollY = useScrollPosition();
 
     return (
          <FilterHeaderContainer>
-            <Title isPassedTop = {isPassedTop}>{title}</Title>
+            <Title isPassedTop = {scrollY > 150}>{title}</Title>
             <FilterOptionsContainer>
                 <FilterOption onClick = {() => setIsFilterMenuHidden()}>
                     {isFilterMenuHidden ? 'Show' : 'Hide'} Filters
                     <FilterIcon isFilterMenuHidden = {isFilterMenuHidden}></FilterIcon>
                 </FilterOption>
-                <FilterOption 
-                    onClick = {() => setIsDropdownHidden()}
-                    isDropdownHidden = {isDropdownHidden}>
-                    Sort By 
-                    <ArrowIcon isDropdownHidden = {isDropdownHidden} />
-                </FilterOption>
             </FilterOptionsContainer>
-            <SortDropdownContainer isDropdownHidden = {isDropdownHidden}>
-                <span data-type='high' onClick = {handleClick}>Price: High-Low</span>
-                <span data-type='low' onClick = {handleClick}>Price: Low-High</span>
-            </SortDropdownContainer>
         </FilterHeaderContainer>
     )
 }
 
 const mapStateToProps = createStructuredSelector({
-    isFilterMenuHidden: selectFilterMenu,
-    isDropdownHidden : selectSortByDropdown
+    isFilterMenuHidden: selectFilterMenu
 })
 
-const mapDispatchToProps = dispatch => ({
-    setIsFilterMenuHidden: () => dispatch(toggleFillterMenu()),
-    setIsDropdownHidden: () => dispatch(toggleSortByDropdown())
+const mapDispatchToProps = (dispatch) => ({
+    setIsFilterMenuHidden: () => dispatch(toggleFillterMenu())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(FilterHeader)

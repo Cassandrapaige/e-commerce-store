@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 
 import { selectCollectionByFilter} from '../../redux/shop/shop.selectors'
@@ -8,7 +8,7 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 const FilteredResultsPage = ({ collections, match }) => {
     return (
-         <CollectionsContainer title={match.params.filter}>
+         <CollectionsContainer title={match.params.filter} collection = {collections}>
             <div className="collection-preview">
                 {collections.map(collection => collection.map(item => (
                     <CollectionItem key = {item.id} item={item}/>

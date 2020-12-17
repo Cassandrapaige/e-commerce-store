@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import {connect} from 'react-redux'
-import {animated, useSpring, useTransition, config} from 'react-spring'
+import {animated, useTransition, config} from 'react-spring'
 
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/cutom-button.component'
-
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 
 import {SignInContainer, 
         SignInHeader,
@@ -165,7 +163,7 @@ const SignIn = ({emailSignInStart, googleSignInStart, setHidden, hidden, inverte
 const mapDispatchToProps = dispatch => ({
     googleSignInStart: () => dispatch(googleSignInStart()),
     emailSignInStart: (email, password) =>
-      dispatch(emailSignInStart({ email, password }))
+        dispatch(emailSignInStart({ email, password }))
   });
 
 export default connect(null, mapDispatchToProps)(SignIn)

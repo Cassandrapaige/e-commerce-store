@@ -5,11 +5,7 @@ import {createStructuredSelector} from 'reselect'
 
 import {selectFilterMenu} from '../../redux/shop/shop.selectors'
 
-import {isFilterMenuHidden} from '../../redux/shop/shop.actions'
-import {toggleSortByDropdown} from '../../redux/shop/shop.actions'
-
 import FilterMenu from '../../components/filter-menu/filter-menu.component'
-import CollectionPreview from '../../components/preview-collection/preview-collection.component'
 import FilterHeader from '../../components/filter-header/filter-header.component'
 
 import {CollectionItemContainer, 
@@ -21,7 +17,6 @@ const CollectionsContainer = props => {
    
     const {
         isFilterMenuHidden, 
-        setIsDropdownHidden, 
         tags, 
         title, 
         children, 
@@ -35,7 +30,7 @@ const CollectionsContainer = props => {
 
     return (
     <CollectionContainer>
-        <FilterHeader title = {title} handleClick = {handleClick}/>
+        <FilterHeader title = {title} handleClick = {handleClick} />
         <CollectionPageContainer>
             <FilterMenu items = {tags} fetchFilteredCollection = {filterDataByType}/>
             <CollectionItemContainer isOpen = {isFilterMenuHidden}>
@@ -49,8 +44,4 @@ const mapStateToProps = createStructuredSelector({
     isFilterMenuHidden: selectFilterMenu
 })
 
-const mapDispatchToProps = dispatch => ({
-    setIsDropdownHidden: () => dispatch(toggleSortByDropdown())
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CollectionsContainer))
+export default withRouter(connect(mapStateToProps)(CollectionsContainer))

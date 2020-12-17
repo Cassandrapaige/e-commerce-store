@@ -1,6 +1,5 @@
-import React from 'react';
-
 import CartActionTypes from './cart.types'
+
 import { addItemToCart, 
         removeItemFromCart, 
         clearItemFromCart} from './cart.utils'

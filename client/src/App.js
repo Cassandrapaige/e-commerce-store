@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom'
 
 import {connect} from 'react-redux'
@@ -8,11 +8,11 @@ import Navbar from './components/navbar/navbar.component'
 import Spinner from './components/spinner/spinner.component'
 import Footer from './components/footer/footer.component'
 
-import { 
-      auth, 
-      createUserProfileDocument, 
-      addCollectionAndDocuments 
-    } from './firebase/firebase.utils'
+// import { 
+//       auth, 
+//       createUserProfileDocument, 
+//       addCollectionAndDocuments 
+//     } from './firebase/firebase.utils'
 
 import {checkUserSession } from './redux/user/user.actions';
 
@@ -28,7 +28,6 @@ const SearchResultsPage = lazy(() => import('./pages/search-results/search-resul
 const ShopPage = lazy(() => import('./pages/shop/shop.component'))
 const SignInAndSignUpPage = lazy(() => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component'))
 const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'))
-const CollectionDetailsPage = lazy(() => import('./pages/collection-details/collection-details.component'))
 const HireMePage = lazy(() => import('./pages/hire_me/hire_me.component'))
 
 const ScrollToTop = () => {
@@ -45,7 +44,6 @@ const App = (
       {// collectionsArray, 
       checkUserSession,
       hidden, 
-      toggleCartHidden,
       currentUser}) =>  {
 
   let unsubscribeFromAuth = null;
